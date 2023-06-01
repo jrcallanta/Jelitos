@@ -1,0 +1,131 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.subsection[data-edit-mode] textarea {
+  margin: 0;
+  padding: 0;
+}
+.subsection[data-edit-mode] textarea[name=content] {
+  flex-grow: 1;
+  box-sizing: content-box;
+}
+
+/*** TYPOGRAPHY **************************/
+.subsection[data-edit-mode] textarea[name=title] {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+.subsection[data-edit-mode] textarea[name=content] {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  letter-spacing: -0.02rem;
+}
+
+/*** DECORATION **************************/
+.subsection[data-edit-mode] {
+  position: relative;
+}
+.subsection[data-edit-mode] > * {
+  z-index: 1;
+  transition: all 150ms ease-out;
+}
+.subsection[data-edit-mode]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2rem);
+  height: calc(100% + 4rem);
+  transition: all 200ms ease-out;
+  outline: 0.3rem solid hsla(var(--clr-drk), 0);
+  border-radius: 0.8rem;
+}
+.subsection[data-edit-mode]:hover::before,
+.subsection[data-edit-mode] .hover::before {
+  outline: 0.3rem solid hsla(var(--clr-drk), 0.25);
+}
+.subsection[data-edit-mode] textarea {
+  position: relative;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  background-color: transparent;
+}
+.subsection[data-edit-mode][data-edit-mode=true]::before {
+  outline: 0.3rem solid hsla(var(--clr-drk), 0.25);
+}

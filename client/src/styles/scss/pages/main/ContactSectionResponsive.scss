@@ -1,0 +1,24 @@
+@use '_ContactSection.scss';
+@import '../../responsive';
+
+.ContactSection {
+    @include respond(tablet-vert) {
+        .Form {
+            grid-template-areas:
+                'name'
+                'email'
+                'phone'
+                'message'
+                'actions'
+            ;
+        }
+    }
+
+    @include respond(mobile) {
+
+    }
+
+    @include respond(mobile-small) {
+
+    }
+}

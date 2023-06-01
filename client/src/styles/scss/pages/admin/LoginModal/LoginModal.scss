@@ -1,0 +1,51 @@
+@import "../../../_base";
+@import "../../../_animations";
+
+/*** FORMATTING **************************/
+
+.LoginModal {
+    animation: fadeIn $speed-slower;
+    height: 60vh;
+    width: 60vw;
+    min-width: 40rem;
+    padding: 3rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    &__header {
+        margin-bottom: 4rem;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.LoginModal {
+    &__header {
+        font-size: 2.75rem;
+        font-weight: 700;
+        color: hsl(0, 0%, 60%);
+        color: hsl(var(--clr-drk));
+    }
+}
+
+/*** DECORATION **************************/
+
+.LoginModal {
+    box-shadow: 0 0 1rem hsl(0, 0, 90%);
+    border-radius: 2rem;
+}
+
+/*** OVERRIDES **************************/
+
+.LoginModal {
+    .Form {
+        width: 30rem;
+        height: 60%;
+
+        .Submit {
+            margin-top: auto;
+        }
+    }
+}

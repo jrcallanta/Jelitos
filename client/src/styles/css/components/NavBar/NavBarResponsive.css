@@ -1,0 +1,356 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.NavBar {
+  transition: top 400ms;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffffff;
+}
+.NavBar .wrapper {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3.8rem 4.6rem;
+}
+.NavBar .NavBar__brand {
+  padding: 0.6rem 0.3rem;
+  margin-right: 2rem;
+}
+.NavBar .NavBar__nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.NavBar .NavBar__nav ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+.NavBar .NavBar__projectsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 6rem;
+  margin-top: 0;
+  height: 0;
+  overflow: hidden;
+}
+.NavBar .NavBar__projectsList.show {
+  padding: 2rem 0;
+  height: auto;
+}
+.NavBar .NavBar__projectsList .NavBar__projectsList__categoryList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.NavBar .NavBar__projectsList .NavBar__projectsList__project {
+  max-width: 12rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.NavBar a {
+  text-decoration: none;
+  color: #000000;
+}
+.NavBar .NavBar__brand a {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.NavBar .NavBar__nav a:link,
+.NavBar .NavBar__nav a:visited {
+  color: #ababab;
+}
+.NavBar .NavBar__nav a:link:hover,
+.NavBar .NavBar__nav a:visited:hover {
+  color: #000000;
+}
+.NavBar .NavBar__nav ul {
+  list-style: none;
+}
+.NavBar .NavBar__nav .NavBar__projectsList__categoryList__category a {
+  color: #000000;
+}
+.NavBar .NavBar__nav .NavBar__nav__navItem {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #000000;
+}
+.NavBar .NavBar__nav .NavBar__nav__navItem {
+  transition: all 200ms;
+  border-bottom: solid 2px transparent;
+}
+.NavBar .NavBar__nav .NavBar__nav__navItem:hover {
+  border-bottom: solid 2px #000000;
+}
+.NavBar .NavBar__nav .NavBar__projectsList .NavBar__projectsList__categoryList > :first-child {
+  font-weight: 600;
+}
+.NavBar .NavBar__nav .NavBar__projectsList .NavBar__projectsList__categoryList * {
+  font-size: 1.4rem;
+}
+
+/*** DECORATION **************************/
+.NavBar {
+  transition: all 200ms ease-in-out, transform 400ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.NavBar .NavBar__nav {
+  transition: all 200ms;
+}
+.NavBar .NavBar__nav .NavBar__nav__navItem.active {
+  color: #000000;
+}
+.NavBar .NavBar__nav .NavBar__projectsList__categoryList__category {
+  transition: all 200ms;
+  border-bottom: solid 2px transparent;
+}
+.NavBar .NavBar__nav .NavBar__projectsList__categoryList__category:hover {
+  border-bottom: solid 2px #000000;
+}
+.NavBar .NavBar__nav .NavBar__projectsList {
+  transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+.NavBar .NavBar__nav .NavBar__projectsList.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.NavBar[data-type=fixed] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: all;
+}
+
+.NavBar.floating,
+.NavBar[data-type=fixed].floating {
+  box-shadow: 0 1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.03);
+}
+
+.NavBar[data-type=fixed].hidden {
+  transform: translateY(-100%);
+  visibility: hidden;
+}
+
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.NavBar .wrapper.mobile {
+  display: none;
+}
+@media (max-width: 48em) {
+  .NavBar .wrapper {
+    display: none;
+  }
+  .NavBar .wrapper.mobile {
+    display: grid;
+    grid-template-areas: "brand  .   navIcon" "nav    nav nav";
+    grid-template-columns: 1fr auto minmax(4rem, auto);
+  }
+  .NavBar .wrapper.mobile .NavBar__brand {
+    grid-area: brand;
+  }
+  .NavBar .wrapper.mobile .NavBar__navIcon {
+    grid-area: navIcon;
+  }
+  .NavBar .wrapper.mobile .NavBar__nav {
+    grid-area: nav;
+  }
+  .NavBar .wrapper.mobile .NavBar__projectsList {
+    display: none;
+  }
+  .NavBar .wrapper.mobile .NavBar__navIcon {
+    transition: transform 50ms;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    padding: 0.6rem;
+    min-height: 3rem;
+  }
+  .NavBar .wrapper.mobile .NavBar__navIcon:active {
+    transform: scale(0.9);
+  }
+  .NavBar .wrapper.mobile .NavBar__navIcon img {
+    height: 2.5rem;
+    margin: auto;
+  }
+  .NavBar .wrapper.mobile .NavBar__nav {
+    width: 100%;
+    margin-top: 0;
+    transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+  .NavBar .wrapper.mobile .NavBar__nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+  .NavBar .wrapper.mobile .NavBar__nav.show {
+    margin: 4rem 0 2rem;
+    opacity: 1;
+    height: 13rem;
+    pointer-events: all;
+  }
+}

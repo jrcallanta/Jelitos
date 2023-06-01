@@ -1,0 +1,209 @@
+@import '../base';
+
+/*** FORMATTING **************************/
+
+.ProjectCard {
+    position: relative;
+    box-sizing: border-box;
+    // min-width: 30rem;
+    // height: 40rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__background {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+                
+        &__image {
+            height: 100%;
+            max-width: none;
+        }
+    }
+
+    .details .details__summary span {
+        max-height: 10rem;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.ProjectCard {
+    .details .details__summary span {
+        text-overflow: ellipsis;
+    }
+}
+
+
+/*** DECORATION **************************/
+
+.ProjectCard {
+    animation: fadeIn .5s ease-out;
+    animation-delay: var(--dly);
+    animation-fill-mode: backwards;
+    transition: all $speed-medium;
+    border-radius: .5rem;
+
+    .ProjectCard__background {
+        transition: all $speed-medium, filter 1s ease-out;
+        opacity: 1;
+        background: 
+            linear-gradient(to bottom right, rgba($color-black-500, .08), rgba($color-black-500, .08)),
+            linear-gradient(to top left, hsl(var(--clr-drk)), hsl(var(--clr-drk)))
+        ;
+
+        &__image {
+            mix-blend-mode: overlay;
+            transition: all 2s $anim-cubic-1, transform 4s $anim-cubic-2;
+            opacity: 0;
+            filter: blur(.2rem);
+
+            &.show { opacity: .20; }
+        }
+    }
+    
+    &:hover {
+        .ProjectCard__background {
+            opacity: 1;
+            filter: brightness(.8);
+     
+            &__image {
+                filter: blur(.4rem);
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    // &.outlineOnHover {
+    //     &::before {
+    //         content: '';
+    //         transition: all $speed-medium;
+    //         position: absolute;
+    //         z-index: 1;
+    //         pointer-events: none;
+    //         top: 50%;
+    //         left: 50%;
+    //         width: calc(100% + 3rem);
+    //         height: calc(100% + 3rem);
+    //         opacity: 0;
+    //         transform: translate(-50%, -50%);
+    
+    //     }
+
+    //     &:hover ::before {
+    //         opacity: 1;
+    //         border-radius: 2.5rem;            
+    //         width: calc(100% + 1.75rem);
+    //         height: calc(100% + 1.75rem);        
+    //     }
+    // }
+}
+
+
+
+
+/*** ProjectSummaryBlock Overrides ************************/
+
+.ProjectCard {
+    .ProjectSummaryBlock .details__heading > *,
+    .ProjectSummaryBlock .details__summary, 
+    .ProjectSummaryBlock .actions {
+        padding: 0 2rem;
+    }
+
+    .ProjectSummaryBlock .details__heading > *:first-child {
+        padding: 2rem;
+    }
+
+    .ProjectSummaryBlock .actions {
+        padding-bottom: 2rem;
+    }
+
+    .ProjectSummaryBlock {
+        display: flex;
+        
+        &.noArrowIcon .arrowIcon {
+            display: none;
+        }
+
+        .details {
+            z-index: 1;
+        }
+     
+        .Button {
+            background-color: rgba($color-white-500, .75);
+            color: hsl(var(--clr-drk));
+            font-size: 1rem;
+            padding: .5rem 1.25rem;
+        
+            &:hover {
+                background-color: rgba($color-white-500, 1);
+            }
+        
+            &.outlined {
+                background-color: rgba($color-white-500, 0);
+                border: .2rem solid rgba($color-white-500, .75);
+                color: rgba($color-white-500, .75);
+            
+                &:hover {
+                  background-color: rgba($color-white-500, 1);
+                  border: .2rem solid rgba($color-white-500, 1);
+                  color: hsl(var(--clr-drk));
+                }
+            }
+        }
+    }
+
+    .ProjectSummaryBlock .details__summary span,
+    .ProjectSummaryBlock .details__heading__title span {
+        color: $color-white-500;
+    }
+
+    .ProjectSummaryBlock .details__heading__tags {
+        width: 100%;
+        transition: all $speed-medium $anim-cubic-1;
+        transform: translateY(-100%);
+        opacity: 0;
+        
+        &__tag,
+        &__more {
+            color: hsl(var(--clr-drk));
+        }
+
+        &::after {
+            content: '';
+            z-index: -1;
+            transition: transform $speed-medium $anim-cubic-1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color-white-500, .85);
+            // background-color: hsl(var(--clr));
+            box-shadow: 0 1rem 2rem hsla(var(--clr-shdw));
+            mix-blend-mode: multiply;
+        }
+        
+    }
+    
+
+    &:hover,
+    &.showTags {
+        .ProjectSummaryBlock .details__heading__tags {
+            transform: translateY(0);
+            opacity: 1;
+            
+            &::after {
+                transform: translateY(0);
+            }
+        }
+    }
+}

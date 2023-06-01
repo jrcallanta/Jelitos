@@ -1,0 +1,40 @@
+@import '../../_base';
+
+/*** FORMATTING **************************/
+
+.MediaPlayer {
+    // min-width: 70rem;
+    // max-width: 100%;
+    height: auto;
+    width: auto;
+
+    .player {
+        height: 100%;
+        width: 100%;
+
+        & > div {
+            height: 100%;
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.MediaPlayer {
+
+}
+
+/*** DECORATION **************************/
+
+.MediaPlayer {
+    background-color: hsl(var(--clr-drk));
+
+    .player iframe {
+        transition: all $speed-medium;
+        opacity: 0;
+
+        &.loaded {
+            opacity: 1;
+        }
+    }
+}

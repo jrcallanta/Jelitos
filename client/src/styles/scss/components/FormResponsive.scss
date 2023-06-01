@@ -1,0 +1,15 @@
+@import '../responsive';
+
+.Form {
+    @include respond(tablet-vert) {
+
+    }
+
+    @include respond(mobile) {
+
+    }
+
+    @include respond(mobile-small) {
+
+    }
+}

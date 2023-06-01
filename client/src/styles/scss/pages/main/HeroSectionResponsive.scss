@@ -1,0 +1,46 @@
+@use "./HeroSection";
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.HeroSection {
+    transition: all $speed-medium;
+    height: 70rem;
+
+    @include respond(tablet-vert) {
+        .wrapper {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 4rem;
+
+            .greeting {
+                align-self: center;
+                margin-top: 0;
+
+                .greeting__primary,
+                .greeting__secondary {
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+        }
+
+        .socials {
+            right: 2.5rem;
+            bottom: 2.5rem;
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.HeroSection {
+    @include respond(tablet-vert) {
+        .wrapper .greeting {
+            &__primary,
+            &__secondary {
+                animation: fadeDownSwipe 1s $speed-slowest backwards;
+            }
+        }
+    }
+}

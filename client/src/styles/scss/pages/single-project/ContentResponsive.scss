@@ -1,0 +1,7 @@
+@use "./_Content";
+@import "../../_base";
+
+.Content {
+    @include respond(mobile) {
+    }
+}

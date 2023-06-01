@@ -1,0 +1,58 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.ContactSection {
+    padding: 5rem 0;
+
+    .VerticalLabel .VerticalLabel__text {
+        margin-top: 3rem;
+    }
+
+    .wrapper .content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .Form {
+        display: grid;
+        grid-template-areas:
+            "name   message"
+            "email  message"
+            "phone  message"
+            "actions actions";
+
+        .Input {
+            &[data-name="name"] {
+                grid-area: name;
+            }
+            &[data-name="email"] {
+                grid-area: email;
+            }
+            &[data-name="phone"] {
+                grid-area: phone;
+            }
+            &[data-name="message"] {
+                grid-area: message;
+            }
+        }
+
+        .Form__actions {
+            margin-top: 2rem;
+            grid-area: actions;
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.ContactSection {
+    .content .content__heading {
+        font-size: 2.4rem;
+    }
+}
+
+/*** DECORATION **************************/
+
+.ContactSection {
+}

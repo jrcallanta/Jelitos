@@ -1,0 +1,24 @@
+// COLORS
+$color-white-500: #ffffff;
+$color-black-500: #000000;
+$color-black-300: #ababab;
+$color-black-200: #c4c4c4;
+$color-ube: hsl(260, 37%, 86%);
+$color-ube-dark: hsl(260, 19%, 58%);
+$color-ube-shadow: hsla(260, 19%, 58%, 0.302);
+$color-matcha: #cde8d4;
+$color-matcha-dark: #728f73;
+$color-matcha-shadow: #728f731a;
+
+// TRANSITION
+$speed-fast: 150ms;
+$speed-medium: 200ms;
+$speed-slower: 400ms;
+$speed-slowest: 800ms;
+
+// TRANSITION FUNCTIONS
+$anim-cubic-1: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$anim-cubic-2: cubic-bezier(0.19, 1, 0.22, 1);
+
+// UTILITY
+$universalMaxWidth: 120rem;

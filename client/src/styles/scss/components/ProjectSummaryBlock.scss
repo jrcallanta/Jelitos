@@ -1,0 +1,208 @@
+@import "../_base";
+
+/*** THEMING **************************/
+
+$primary-color: hsl(var(--clr));
+$primary-color-dark: hsl(var(--clr-drk));
+$primary-color-shadow: hsla(var(--clr-shdw));
+$secondary-color: $color-white-500;
+
+/*** FORMATTING **************************/
+
+.ProjectSummaryBlock {
+    display: grid;
+    grid-template-areas: "pst . psm";
+    grid-template-columns: 1fr minmax(0, 5rem) 1fr;
+    height: 100%;
+    max-width: 100%;
+
+    .details,
+    .media {
+        flex: 1;
+    }
+
+    .details {
+        grid-area: pst;
+    }
+    .media {
+        grid-area: psm;
+    }
+
+    .details {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .details__heading {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+
+            &__tags {
+                display: inline-flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            &__title {
+                align-self: flex-start;
+                display: inline-flex;
+                align-items: center;
+                gap: 2rem;
+
+                .arrowIcon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .actions {
+        margin-top: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .media,
+    .media-mobile {
+        .MediaItem .MediaItem__item.image img {
+            min-width: 0;
+        }
+    }
+
+    &.small {
+        .details {
+            // gap: 3rem;
+
+            .details__heading__tags {
+                margin-bottom: 2rem;
+            }
+            .details__heading__title {
+                margin-bottom: 0rem;
+            }
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.ProjectSummaryBlock {
+    .details {
+        &__heading__tags a,
+        &__heading__tags__more,
+        &__heading__title span {
+            font-weight: 600;
+        }
+
+        &__heading__tags a,
+        &__heading__tags__more {
+            font-size: 1rem;
+            color: $primary-color-dark;
+            text-decoration: none;
+        }
+
+        &__heading__title {
+            text-decoration: none;
+        }
+
+        &__heading__title span {
+            font-size: 2.4rem;
+            letter-spacing: -0.02rem;
+            line-height: 3rem;
+            color: $primary-color-dark;
+        }
+
+        &__heading__period {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.02rem;
+            color: $primary-color-dark;
+        }
+
+        &__summary span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 2.4rem;
+            letter-spacing: -0.02rem;
+            color: $primary-color-dark;
+
+            &.showMore {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &.small {
+        .details__summary {
+            font-weight: 500;
+            line-height: 2rem;
+        }
+
+        .Button {
+            padding: 0.8rem 1rem;
+        }
+    }
+
+    &.light .details {
+        &__heading__title,
+        &__heading__period,
+        &__summary {
+            color: $secondary-color;
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.ProjectSummaryBlock {
+    .details__heading__tags__tag,
+    .details__heading__tags__more {
+        cursor: pointer;
+        transition: all $speed-fast;
+        opacity: 0.75;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+
+    .details__heading__title {
+        cursor: pointer;
+
+        .arrowIcon {
+            transition: all $speed-fast;
+            transform: translateX(-1rem);
+            opacity: 0;
+            background-color: hsl(var(--clr-drk));
+            clip-path: url("#ArrowPath");
+        }
+
+        &:hover {
+            .arrowIcon {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .media,
+    .media-mobile {
+        border-radius: 0.8rem;
+        background-color: $primary-color-shadow;
+    }
+
+    .media,
+    .media-mobile {
+        min-height: 20rem;
+    }
+}
+
+.ProjectSummaryBlock .details .details__heading .details__heading__title {
+}

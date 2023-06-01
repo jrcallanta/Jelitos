@@ -1,0 +1,19 @@
+@import "./_base";
+@import "./_responsive";
+
+.App {
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        margin-top: 12.3188rem; // height of NavBar when collapsed
+    }
+}
+
+.App {
+    &__content {
+        @include respond(tablet-vert) {
+            margin-top: 11.8rem; // height of NavBar when collapsed
+        }
+    }
+}

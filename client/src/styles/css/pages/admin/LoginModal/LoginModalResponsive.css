@@ -1,0 +1,198 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.LoginModal {
+  animation: fadeIn 400ms;
+  height: 60vh;
+  width: 60vw;
+  min-width: 40rem;
+  padding: 3rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.LoginModal__header {
+  margin-bottom: 4rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.LoginModal__header {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 60%);
+  color: hsl(var(--clr-drk));
+}
+
+/*** DECORATION **************************/
+.LoginModal {
+  box-shadow: 0 0 1rem hsl(0, 0%, 90%);
+  border-radius: 2rem;
+}
+
+/*** OVERRIDES **************************/
+.LoginModal .Form {
+  width: 30rem;
+  height: 60%;
+}
+.LoginModal .Form .Submit {
+  margin-top: auto;
+}
+
+@media (max-width: 20em) {
+  .LoginModal {
+    width: 100%;
+    min-width: 0;
+    height: fit-content;
+    padding: 3.2rem 1.6rem 2.6rem;
+    justify-content: flex-start;
+    box-shadow: none;
+  }
+  .LoginModal .Form {
+    width: 100%;
+  }
+}

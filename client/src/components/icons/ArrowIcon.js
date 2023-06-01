@@ -1,0 +1,22 @@
+function ArrowIcon({ id }) {
+    return (
+        <svg
+            width='35'
+            height='27'
+            viewBox='0 0 35 27'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+        >
+            <defs>
+                <clipPath id={id}>
+                    <path
+                        d='M21.3313 0L35 13.5L21.3313 27L19.5484 25.2391L30.1615 14.7571H0L2.8338e-07 12.2431H30.1616L19.5485 1.76087L21.3313 0Z'
+                        fill='white'
+                    />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+}
+
+export default ArrowIcon;

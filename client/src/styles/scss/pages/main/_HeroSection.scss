@@ -1,0 +1,188 @@
+@import "../../_base";
+@import "../../animations";
+
+/*** FORMATTING **************************/
+
+.HeroSection {
+    position: relative;
+    height: 55rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+
+    .wrapper {
+        min-height: 30rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+
+        .avatar {
+            width: 20.9rem;
+
+            .avatar__img {
+                transition: all 1s cubic-bezier(0.175, 0.885, 0.42, 1);
+                opacity: 0;
+                transform: translateY(-5rem);
+            }
+
+            .avatar__shadow {
+                transition: all $speed-slower;
+                opacity: 0;
+            }
+        }
+
+        .avatar.show {
+            .avatar__img {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .avatar__shadow {
+                opacity: 1;
+            }
+        }
+
+        .greeting {
+            align-self: flex-start;
+            margin-top: 4rem;
+
+            .greeting__primary {
+                margin-bottom: 1rem;
+            }
+
+            .greeting__secondary {
+                margin-left: 2rem;
+            }
+        }
+    }
+
+    .socials {
+        position: absolute;
+        bottom: 3rem;
+        right: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 1.5rem;
+
+        &__social {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.HeroSection {
+    .wrapper .greeting {
+        &__primary {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        &__secondary {
+            font-weight: 500;
+            color: $color-black-300;
+            font-size: 1.6rem;
+
+            &__accent {
+                font-weight: 600;
+                font-size: 1.6rem;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.HeroSection {
+    .avatar {
+        .avatar__img,
+        .avatar__shadow {
+            transition: all 1s cubic-bezier(0.175, 0.885, 0.42, 1);
+            opacity: 0;
+        }
+
+        .avatar__img {
+            transform: translateY(-5rem);
+        }
+    }
+
+    .avatar.show {
+        .avatar__img,
+        .avatar__shadow {
+            opacity: 1;
+        }
+
+        .avatar__img {
+            transform: translateY(0);
+        }
+    }
+
+    .wrapper .greeting {
+        &__primary,
+        &__secondary {
+            animation: fadeRightSwipe 1s $speed-slowest;
+            animation-fill-mode: backwards;
+        }
+
+        &__primary {
+            animation-delay: 1s;
+        }
+
+        &__secondary {
+            animation-delay: 1.75s;
+        }
+    }
+}
+
+/*** EXTRA DECORATION **************************/
+
+.HeroSection {
+    .avatar__img {
+        img {
+            transition: border $speed-medium, background-color $speed-slower,
+                filter 1.5s;
+            padding: 0.75rem;
+            border-radius: 50%;
+            border: solid 0.75rem $color-black-300;
+            background-color: rgba($color-black-500, 0.6);
+            filter: saturate(0) contrast(1.1);
+
+            &:hover,
+            &.color {
+                border: solid 0.75rem hsl(var(--clr));
+                background-color: hsl(var(--clr-drk));
+                filter: saturate(1) contrast(1);
+            }
+        }
+    }
+
+    .socials {
+        &[data-show="false"] {
+            // display: none;
+        }
+
+        &__social {
+            animation: fadeLeftSwipe $speed-slowest ease;
+            animation-fill-mode: backwards;
+            animation-delay: var(--n);
+
+            &__logo {
+                transition: all $speed-medium;
+                opacity: 0.3;
+
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.15);
+                }
+            }
+        }
+    }
+}

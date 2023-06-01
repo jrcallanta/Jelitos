@@ -1,0 +1,34 @@
+@use './_Section';
+@import '../../_base';
+
+.section {
+    @include respond(tablet-vert) {
+        .section__subsections {
+            gap: 8rem 2.5rem;
+
+            .subsection[data-layout-x='1/4'] {
+                grid-column-end: span 6;
+            }
+        }
+    }
+
+    @include respond(mobile) {
+        .section__subsections {
+            column-gap: 2rem;
+
+            .subsection {
+                padding: 0;
+            }
+
+            .subsection[data-layout-x] {
+                grid-column-end: span 12;
+            }
+        }
+    }
+
+    @include respond(mobile-small) {
+        .section__subsections {
+            
+        }
+    }
+}

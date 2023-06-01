@@ -1,0 +1,176 @@
+@import "../../base";
+
+/*** FORMATTING **************************/
+.NavBar {
+    transition: top $speed-slower;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: $color-white-500;
+
+    .wrapper {
+        @include maxWidth;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 3.8rem 4.6rem;
+    }
+
+    .NavBar__brand {
+        padding: 0.6rem 0.3rem;
+        margin-right: 2rem;
+    }
+
+    .NavBar__nav {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        // width: 35rem;
+
+        .NavBar__nav__navItem {
+            // flex: 1;
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+    }
+
+    .NavBar__projectsList {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 6rem;
+
+        margin-top: 0;
+        height: 0;
+        overflow: hidden;
+
+        &.show {
+            padding: 2rem 0;
+            height: auto;
+        }
+
+        .NavBar__projectsList__categoryList {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .NavBar__projectsList__project {
+            max-width: 12rem;
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+.NavBar {
+    a {
+        text-decoration: none;
+        color: $color-black-500;
+    }
+
+    .NavBar__brand a {
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    .NavBar__nav {
+        a:link,
+        a:visited {
+            color: $color-black-300;
+
+            &:hover {
+                color: $color-black-500;
+            }
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .NavBar__projectsList__categoryList__category a {
+            color: $color-black-500;
+        }
+
+        .NavBar__nav__navItem {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $color-black-500;
+        }
+
+        .NavBar__nav__navItem {
+            @include underlineOnHover($color-black-500);
+        }
+
+        .NavBar__projectsList {
+            .NavBar__projectsList__categoryList {
+                & > :first-child {
+                    font-weight: 600;
+                }
+                & * {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+/*** DECORATION **************************/
+.NavBar {
+    transition: all $speed-medium ease-in-out,
+        transform $speed-slower $anim-cubic-1;
+
+    .NavBar__nav {
+        transition: all $speed-medium;
+
+        .NavBar__nav__navItem.active {
+            color: $color-black-500;
+        }
+
+        .NavBar__projectsList__categoryList__category {
+            @include underlineOnHover($color-black-500);
+        }
+
+        .NavBar__projectsList {
+            transition: all $speed-slower $anim-cubic-2;
+            opacity: 0;
+            pointer-events: none;
+
+            &.show {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+.NavBar[data-type="fixed"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    pointer-events: all;
+}
+
+.NavBar.floating,
+.NavBar[data-type="fixed"].floating {
+    box-shadow: 0 1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.03);
+}
+
+.NavBar[data-type="fixed"].hidden {
+    transform: translateY(-100%);
+    visibility: hidden;
+}

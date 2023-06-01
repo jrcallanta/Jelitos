@@ -1,0 +1,22 @@
+@use "./ProjectSummaryBlock.scss";
+@import "../_base";
+
+.ProjectSummaryBlock {
+    .media-mobile {
+        display: none;
+    }
+
+    @include respond(tablet-vert) {
+        grid-template-columns: 1fr;
+
+        .media {
+            display: none;
+        }
+
+        .media-mobile {
+            display: flex;
+            align-self: stretch;
+            margin-bottom: 2rem;
+        }
+    }
+}

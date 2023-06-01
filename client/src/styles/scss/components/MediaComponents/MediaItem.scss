@@ -1,0 +1,144 @@
+@import "../../_base";
+
+/*** MIXIN **************************/
+
+@mixin outlineOnHover {
+    outline: 0.4rem solid transparent;
+    &:hover {
+        outline: 0.4rem solid rgba($color-black-500, 0.5);
+    }
+}
+
+/*** FORMATTING **************************/
+
+.MediaItem {
+    height: 100%;
+    width: 100%;
+
+    .MediaItem__item {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        &.image {
+            img {
+                min-width: var(--width);
+                margin: auto;
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+            }
+
+            &.error {
+                img {
+                    display: none;
+                }
+                &::after {
+                    content: "could not load image";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        &.google-drive {
+            iframe {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.MediaItem {
+    .MediaItem__item.image {
+        font-size: 2rem;
+        font-weight: 500;
+        color: hsl(var(--clr));
+        text-align: center;
+    }
+}
+
+/*** DECORATION **************************/
+
+.MediaItem {
+    border-radius: 0.8rem;
+
+    .MediaItem__item {
+        position: relative;
+        overflow: hidden;
+        border-radius: inherit;
+        box-sizing: content-box;
+        // outline: .5rem solid transparent;
+        background-color: hsla(var(--clr-drk), 0.5);
+        box-shadow: 0 0.5rem 1.5rem 0.1rem hsla(var(--clr-drk), 0.4);
+        filter: brightness(0.9);
+
+        transition: filter $speed-fast ease-out,
+            transform $speed-medium ease-out, box-shadow $speed-medium ease-out,
+            // outline $speed-fast ease-out
+;
+
+        &.active {
+            filter: brightness(1);
+        }
+
+        &.google-drive {
+            @include outlineOnHover;
+            background: none;
+            position: relative;
+
+            iframe {
+                border: none;
+            }
+        }
+
+        &.image.error {
+            img {
+                display: none;
+            }
+
+            &::after {
+                content: "could not load image";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        * {
+            transition: opacity 3s ease-out;
+        }
+    }
+
+    &.loading .MediaItem__item {
+        animation: pulse 2s infinite ease-in;
+        * {
+            opacity: 0;
+        }
+    }
+
+    &:hover .MediaItem__item {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 1rem 2.5rem 0.15rem hsla(var(--clr-drk), 0.3);
+        // outline: .5rem solid rgba($color-black-500, .5);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}

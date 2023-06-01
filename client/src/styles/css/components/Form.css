@@ -1,0 +1,304 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+.Form .Input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.Form .Input input,
+.Form .Input textarea {
+  height: 3rem;
+  padding: 1rem;
+  margin: 0;
+}
+.Form .Input textarea {
+  height: 100%;
+  min-height: 12rem;
+  resize: none;
+}
+.Form .Input textarea::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.Form .Feedback {
+  display: flex;
+  align-items: center;
+}
+.Form .Form__actions {
+  display: flex;
+  gap: 2rem;
+}
+.Form .Submit {
+  padding: 0.8rem 1rem;
+}
+.Form.hide {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/*** TYPOGRAPHY **************************/
+.Form label,
+.Form input,
+.Form textarea {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+.Form label {
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+  color: hsl(var(--clr-drk));
+}
+.Form input,
+.Form textarea {
+  font-weight: 500;
+}
+.Form input::placeholder,
+.Form textarea::placeholder {
+  color: hsla(var(--clr-drk), 0.75);
+}
+.Form input:focus::placeholder,
+.Form textarea:focus::placeholder {
+  color: hsla(var(--clr-drk), 0.8);
+}
+.Form .Feedback {
+  font-size: 2rem;
+}
+.Form .Input[required] {
+  content: "*";
+}
+
+.Form[data-style-mode=light] label {
+  color: hsl(0, 0%, 32%);
+}
+.Form[data-style-mode=light] .Input input::placeholder,
+.Form[data-style-mode=light] .Input textarea::placeholder {
+  color: hsl(0, 0%, 70%);
+}
+.Form[data-style-mode=light] .Input input:focus::placeholder,
+.Form[data-style-mode=light] .Input textarea:focus::placeholder {
+  color: hsla(var(--clr-drk), 0.75);
+}
+.Form[data-style-mode=light] .Input:focus-within label {
+  color: hsl(var(--clr-drk));
+}
+
+.Submit {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  letter-spacing: -0.05rem;
+  color: hsla(var(--clr), 1);
+}
+
+.Submit[data-style-mode=light] {
+  color: hsl(var(--clr-drk));
+}
+
+/*** DECORATION **************************/
+.Form {
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.Form label {
+  transition: all 150ms;
+}
+.Form .Input input,
+.Form .Input textarea {
+  cursor: auto;
+  transition: all 150ms;
+  border: none;
+  border-radius: 0.5rem;
+  outline: 0.3rem solid hsl(var(--clr));
+  background-color: hsla(var(--clr-drk), 0.1);
+  box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2), inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+}
+.Form .Input input:focus,
+.Form .Input textarea:focus {
+  box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2), inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+  outline: 0.3rem solid hsla(var(--clr-drk), 0.6) !important;
+}
+.Form .Input textarea::-webkit-scrollbar-track {
+  background-color: hsla(0, 0%, 100%, 0);
+}
+.Form .Input textarea::-webkit-scrollbar-thumb {
+  border-radius: 0.8rem;
+  background-color: hsl(0, 0%, 85%);
+}
+.Form .Input textarea:focus::-webkit-scrollbar-thumb {
+  background-color: hsla(var(--clr-drk), 0.3);
+}
+.Form .Input[data-validity=false] input,
+.Form .Input[data-validity=false] textarea {
+  outline: 0.3rem solid rgba(255, 100, 100, 0.6) !important;
+}
+.Form[data-disabled=true] .Input {
+  pointer-events: none;
+  opacity: 0.45;
+}
+.Form .Feedback[data-displayed] {
+  transition: opacity 200ms ease-out;
+}
+.Form .Feedback[data-displayed=false] {
+  opacity: 0;
+}
+.Form .Feedback[data-displayed=true] {
+  opacity: 1;
+}
+
+.Form[data-style-mode=light] input,
+.Form[data-style-mode=light] textarea {
+  outline-color: #ffffff;
+  background-color: hsla(0, 0%, 90%, 0.25);
+  box-shadow: inset 0 0.4rem 0.4rem hsla(0, 0%, 0%, 0.1), inset 0 0.4rem 0.3rem hsla(0, 0%, 0%, 0.05);
+}
+.Form[data-style-mode=light] input:focus,
+.Form[data-style-mode=light] textarea:focus {
+  background-color: hsla(var(--clr-drk), 0.15);
+  box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2), inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+}
+
+.Submit {
+  transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: hsla(var(--clr-drk), 0.6);
+  box-shadow: 0 0.4rem 0.8rem hsla(0, 0%, 0%, 0.1);
+}
+.Submit:hover {
+  padding: 0.8rem 2rem;
+}
+.Submit[disabled=true] {
+  pointer-events: none;
+  filter: saturate(0);
+  opacity: 0.8;
+}
+.Submit[disabled] {
+  pointer-events: none;
+}
+.Submit.flashy {
+  position: relative;
+}
+.Submit.flashy::after {
+  transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.25rem;
+  animation: pulsing 1.25s infinite;
+}
+.Submit.flashy[disabled]::after, .Submit.flashy[disabled=true]::after {
+  animation: none;
+}
+
+.Submit[data-style-mode=light] {
+  background-color: hsl(var(--clr));
+}
+.Submit[data-style-mode=light].flashy::after {
+  animation: pulsing 1.25s infinite;
+}
+.Submit[data-style-mode=light].flashy[disabled]::after, .Submit[data-style-mode=light].flashy[disabled=true]::after {
+  animation: none;
+}
+
+@keyframes pulsing {
+  0% {
+    box-shadow: 0 0 0 0 hsla(var(--clr-drk), 0);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 1.5rem hsla(var(--clr-drk), 0.7);
+    opacity: 0;
+  }
+}
+@keyframes pulsinglight {
+  0% {
+    box-shadow: 0 0 0 0 hsla(var(--clr), 0.5);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 1.5rem hsla(var(--clr), 1);
+    opacity: 0;
+  }
+}

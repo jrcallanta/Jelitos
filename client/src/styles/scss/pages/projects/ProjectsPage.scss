@@ -1,0 +1,106 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.ProjectsPage {
+    animation: fadeIn $speed-slower ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+    // height: 100vh;
+    overflow: hidden;
+
+    & > .wrapper {
+        @include maxWidth;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        overflow-x: hidden;
+
+        .VerticalLabel .VerticalLabel__text {
+            margin-top: 2rem;
+        }
+
+        & > .content {
+            flex: 1;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            gap: 1rem;
+            padding-top: 2rem;
+
+            .scrollToTopButton {
+                position: absolute;
+                z-index: 1;
+                left: -5rem;
+                bottom: 2rem;
+                width: 8rem;
+                height: 8rem;
+            }
+
+            .query {
+                margin: 0; // align with ProjectCards
+                padding: 1rem 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+
+                .SearchBar {
+                    max-width: 67rem;
+
+                    .SearchBar__input {
+                        width: calc(50% - 0.5rem);
+                        min-width: 25rem;
+                    }
+
+                    .SearchBar__input:focus,
+                    .SearchBar__input:active:has(+ .submitButton),
+                    .SearchBar__input.active:has(+ .submitButton) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .table {
+                padding: 1rem 2rem 2rem;
+                width: 100%;
+                display: grid;
+                // gap: 1.75rem; // if using ProjectCard.outlineOnHover
+                gap: 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+
+                .ProjectCard {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.ProjectsPage {
+    & > .wrapper > .content .query .query__feedback {
+        font-size: 1.35rem;
+        font-weight: 500;
+    }
+}
+
+/*** DECORATION **************************/
+
+.ProjectsPage {
+    & > .wrapper > .content {
+        .query {
+            transition: height $speed-slower;
+            // overflow-y: hidden;
+
+            .query__feedback {
+                animation: fadeInGrow $speed-slower ease-out;
+            }
+        }
+
+        .table {
+        }
+    }
+}

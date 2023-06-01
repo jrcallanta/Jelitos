@@ -1,0 +1,23 @@
+@import "../../base";
+@import "../../animations";
+
+/*** FORMATTING **************************/
+
+.AdminPage {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    margin: 8rem auto 10rem;
+}
+
+/*** TYPOGRAPHY **************************/
+
+.AdminPage {
+}
+
+/*** DECORATION **************************/
+
+.AdminPage {
+    animation: fadeIn $speed-slower;
+}

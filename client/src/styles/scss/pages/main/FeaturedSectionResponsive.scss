@@ -1,0 +1,19 @@
+@use "./_FeaturedSection";
+@import "../../responsive";
+
+.FeaturedSection {
+    .wrapper {
+        @include respond(tablet-vert) {
+        }
+
+        @include respond(mobile) {
+            .ProjectSummaryBlock
+                .details
+                .details__heading
+                .details__heading__title
+                span {
+                text-decoration: underline;
+            }
+        }
+    }
+}

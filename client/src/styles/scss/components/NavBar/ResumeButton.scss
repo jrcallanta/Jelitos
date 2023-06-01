@@ -1,0 +1,29 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.ResumeButton {
+    padding: 0.6rem 1.75rem;
+}
+
+/*** TYPOGRAPHY **************************/
+
+.ResumeButton {
+    span {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $color-white-500;
+    }
+}
+
+/*** DECORATION **************************/
+
+.ResumeButton {
+    position: relative;
+    border: none;
+    background-color: $color-black-500 !important;
+
+    &:hover .icon {
+        scale: 0.8 0.7;
+    }
+}

@@ -1,0 +1,284 @@
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  height: 0.5rem;
+  width: 1.25rem;
+  border: none;
+  background: transparent;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  transition: background-color 200ms;
+  background-clip: padding-box;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+body {
+  overflow-y: overlay;
+  margin: 0;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/*** MY RESET **********************/
+/* Overide blue outline on active links & buttons */
+a:focus,
+button:focus,
+input:focus,
+:focus {
+  outline-color: rgb(150, 150, 150);
+}
+
+[id$=root] {
+  width: 100vw;
+}
+
+/* Fixed Positioning for overlay & modal layers */
+[id=overlay-root],
+[id=project-modal-root],
+[id=media-modal-root] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  transition: backdrop-filter 0.25s ease-out;
+}
+[id=overlay-root].blurBackground,
+[id=project-modal-root].blurBackground,
+[id=media-modal-root].blurBackground {
+  backdrop-filter: blur(0.5rem) brightness(1.05);
+}
+
+/* Make overlay layer above root */
+[id=overlay-root] {
+  z-index: 1000;
+}
+
+/* Make project-modal layer above prev */
+[id=project-modal-root] {
+  z-index: 2000;
+}
+[id=project-modal-root]::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(var(--clr-drk));
+  clip-path: circle(0 at var(--x, 50%) var(--y, 50%));
+  opacity: 1;
+  transition: none;
+}
+[id=project-modal-root][data-project-view=true]::after {
+  transition: clip-path 1.25s ease-out, opacity 1.25s ease-out;
+  background-color: hsl(var(--clr-drk));
+  clip-path: circle(100vh at var(--x, 50%) var(--y, 50%));
+  opacity: 0;
+}
+
+/* Make media-modal layer above all */
+[id=media-modal-root] {
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[id=media-modal-root][data-active=true] {
+  pointer-events: all;
+}
+[id=media-modal-root][data-active=true]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*** MODERN RESET **********************/
+* {
+  font-size: 62.5%;
+}
+@media (max-width: 37.5em) {
+  * {
+    font-size: 58%;
+  }
+}
+@media (max-width: 20em) {
+  * {
+    font-size: 55%;
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

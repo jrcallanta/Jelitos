@@ -1,0 +1,81 @@
+@use './_SingleProjectPage.scss';
+// @use './ProjectPrefaceResponsive';
+// @use './ProjectContentResponsive';
+// @use './_SectionResponsive';
+@import '../../responsive';
+
+.SingleProjectPage {
+
+    @include respond(tablet-vert) {
+        .wrapper .actions {
+            padding: 2.5rem 5rem;
+            
+            .backButton p::before {
+                content: ''
+            }
+        }
+
+        .navigationButton {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    @include respond(mobile) {
+        .wrapper {
+            .actions {
+                padding: 2.5rem 4rem;
+                
+                .backButton p {
+                    font-size: 2.5rem;
+                    line-height: 3rem;
+                }
+            }
+            
+            .content {
+                padding: 1rem;
+                padding-right: 2rem; // 1rem added for overlay scrollbar
+            }
+        }
+
+         .navigationButton {
+            width: 6rem;
+            height: 6rem;
+            opacity: 1;
+
+            .navigationButton__icon {
+                transform: scale(.8) rotate(-90deg);
+            }
+
+            &:active .navigationButton__icon { 
+                transform: scale(.7) rotate(-90deg);
+            }
+        }
+    }
+
+    @include respond(mobile-small) {
+        padding-top: 8rem;
+        
+        .wrapper {
+            .actions {
+                height: 8rem;
+                padding: 2rem 3rem;
+            }
+            
+            .content {
+                padding: 0;
+                padding-right: 1rem;
+            }
+        }
+
+        .navigationButton {
+            .navigationButton__icon {
+                transform: scale(.6) rotate(-90deg);
+            }
+
+            &:active .navigationButton__icon { 
+                transform: scale(.5) rotate(-90deg);
+            }
+        }
+    }
+}

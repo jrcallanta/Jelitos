@@ -1,0 +1,45 @@
+@use './ProjectsPage';
+@import '../../base';
+
+.ProjectsPage {
+    .ProjectCard {
+        // max-width: 30rem;
+        // max-width: 40rem;
+    }
+
+    .wrapper {
+        @include respond(tablet-vert) {
+            .sideLabel {
+                .sideLabel__text {
+                    line-height: auto;
+                }
+            }
+    
+            .content {
+                padding-left: 0;
+                padding-right: 0;
+
+                .query .SearchBar {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        @include respond(mobile) {
+            
+            .sideLabel {
+                .sideLabel__text {
+                    font-size: 6rem;
+                    line-height: normal;
+                }
+            }
+
+            .content {
+                .query .SearchBar .SearchBar__input {
+                    min-width: none;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

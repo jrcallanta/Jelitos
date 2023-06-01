@@ -1,0 +1,99 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.VerticalLabeledSection {
+    min-height: 53.3rem;
+    position: relative;
+
+    .wrapper {
+        @include maxWidth;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        .content {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 2.5rem;
+
+            .content__heading,
+            .content__info {
+                padding: 2.5rem 5rem;
+            }
+
+            .content__heading {
+                display: flex;
+                flex-direction: row;
+                gap: 3.1rem;
+            }
+        }
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.VerticalLabeledSection {
+    .content {
+        a:link,
+        a:visited {
+            color: hsl(var(--clr-drk));
+            text-decoration: none;
+        }
+
+        .content__heading {
+            font-weight: 600;
+            font-size: 1.8rem;
+            letter-spacing: -0.05rem;
+            text-transform: uppercase;
+            color: hsl(var(--clr-drk));
+        }
+    }
+
+    &[data-style-mode="light"] {
+        .content .content__heading {
+            color: $color-black-500;
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.VerticalLabeledSection {
+    transition: all $speed-slower ease-out, opacity $speed-slower ease-in;
+    background: hsl(var(--clr));
+
+    &[data-style-mode="light"] {
+        background: $color-white-500;
+    }
+
+    & > .wrapper {
+        animation: fadeIn $speed-slower;
+        animation-delay: $speed-slower;
+        animation-fill-mode: backwards;
+
+        & > .content {
+            animation: fadeIn $speed-slowest;
+            animation-delay: $speed-slower;
+            animation-fill-mode: backwards;
+        }
+    }
+
+    &[data-observed="false"] {
+        opacity: 0;
+
+        & > .wrapper {
+            display: none;
+
+            & > .content {
+                display: none;
+            }
+        }
+    }
+}

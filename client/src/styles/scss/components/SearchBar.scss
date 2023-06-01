@@ -1,0 +1,124 @@
+@import "../base";
+
+/*** FORMATTING **************************/
+
+.SearchBar {
+    position: relative;
+    width: 100%; // may be overridden by parenting element class
+    display: flex;
+    align-items: stretch;
+
+    .SearchBar__input {
+        max-height: 5rem;
+        padding: 0.75rem 1.75rem;
+        width: 50%; // may be overridden by parenting element class
+        min-width: 35rem;
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.SearchBar {
+    .SearchBar__input {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: $color-black-200;
+        text-overflow: ellipsis;
+
+        &::placeholder {
+            color: $color-black-200;
+        }
+
+        &:focus,
+        &:active {
+            &::placeholder {
+                color: rgba($color-black-500, 0.3);
+            }
+            color: $color-black-500;
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.SearchBar {
+    .SearchBar__input {
+        transition: all $speed-medium;
+        border: 2px solid $color-black-200;
+        border-radius: 0.25rem 0 0 0.25rem;
+        resize: none;
+
+        &:focus,
+        &:active {
+            outline: none !important;
+            border: 2px solid rgba($color-black-500, 0.5);
+            border-radius: 5rem;
+            background-color: rgba($color-black-300, 0.3);
+
+            & + .submitButton {
+                border: 2px solid rgba($color-black-500, 0);
+                background-color: rgba($color-black-500, 0.6);
+            }
+        }
+
+        &:focus,
+        &:active,
+        &.active {
+            width: 100%;
+
+            &:has(+ .submitButton) {
+                border-radius: 5rem 0 0 5rem;
+                border-right: none;
+
+                & + .submitButton {
+                    border-radius: 0 5rem 5rem 0;
+                    padding-right: 1rem;
+                }
+            }
+
+            &:has(+ .submitButton:hover) {
+                border-color: rgba($color-black-500, 1);
+
+                & + .submitButton:hover {
+                    border: 2px solid rgba($color-black-500, 0);
+                    background-color: rgba($color-black-500, 1);
+                }
+            }
+        }
+    }
+
+    .submitButton {
+        transition: all $speed-medium;
+        cursor: pointer;
+        position: relative;
+        background-color: $color-black-200;
+        border: 2px solid $color-black-200;
+        border-radius: 0 0.25rem 0.25rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $color-white-500;
+    }
+}
+
+// .submitButton {
+//     position: absolute;
+//     top: 50%;
+//     right: 0;
+//     transform: translateY(-50%);
+//     padding: 0 0.5rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: 1rem solid transparent;
+//     border-radius: 2rem;
+//     background-color: rgba($color-black-300, 0.75);
+//     font-size: 1.2rem;
+//     font-weight: 600;
+//     color: $color-white-500;
+// }

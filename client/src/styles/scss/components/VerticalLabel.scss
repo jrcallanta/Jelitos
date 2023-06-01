@@ -1,0 +1,61 @@
+@import '../_base';
+
+/*** FORMATTING **************************/
+
+.VerticalLabel {
+    width: 10rem;
+
+    &__text{
+        margin-top: 6rem;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        pointer-events: none;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.VerticalLabel {
+    .VerticalLabel__text {
+        font-style: italic;
+        font-weight: 300;
+        font-size: 8rem;
+        line-height: 10.8rem;
+        letter-spacing: -0.05rem;
+        text-align: right;
+        color: $color-white-500;
+        background-color: $color-white-500; // should prevent glimpse of black on fade in
+    }
+}
+
+/*** DECORATION **************************/
+
+.VerticalLabel {
+    .VerticalLabel__text {
+        color: hsla(var(--clr), .1);
+        text-shadow: 
+            .2rem .3rem .15rem hsla(var(--clr), .3),
+            -.5rem .4rem .2rem hsla(var(--clr), .7),
+            -.25rem .3rem .1rem hsla(var(--clr), .6),
+            -.4rem .2rem .1rem hsla(var(--clr), .5),
+            0 0 .1rem hsla(var(--clr), .1)
+        ;
+        background-color: hsla(var(--clr-drk), .55);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-stroke-width: 1px;
+        background-clip: text;
+    }
+
+    &[data-style-mode='light'] .VerticalLabel__text {
+        color: hsla(0, 0%, 100%, .1);
+        text-shadow: 
+            .2rem .3rem .15rem hsla(0, 0%, 100%, .3),
+            -.5rem .4rem .2rem hsla(0, 0%, 100%, .7),
+            -.25rem .3rem .1rem hsla(0, 0%, 100%, .6),
+            -.4rem .2rem .1rem hsla(0, 0%, 100%, .5),
+            0 0 .1rem hsla(0, 0%, 100%, .1)
+        ;
+        background-color: hsla(0, 0%, 50%, .55);
+    }
+}

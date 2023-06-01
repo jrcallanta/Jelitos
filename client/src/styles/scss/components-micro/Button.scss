@@ -1,0 +1,95 @@
+@import "../_base";
+
+/*** THEMING **************************/
+.Button {
+    // --clr: 260, 37%, 86%;
+    // --clr-drk: 260, 19%, 48%;
+    // --clr-shdw: 260, 19%, 48%, 0.302;
+}
+
+/*** FORMATTING **************************/
+
+.Button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1rem;
+}
+
+/*** TYPOGRAPHY **************************/
+
+.Button {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: hsl(var(--clr));
+}
+
+/*** DECORATION **************************/
+
+.Button {
+    transition: all $speed-medium;
+    border-radius: 0.5rem;
+    background: none;
+    background-color: hsla(var(--clr-drk), 0.75);
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: hsla(var(--clr-drk), 1);
+    }
+
+    .icon {
+        transition: all $speed-medium ease-out,
+            scale $speed-medium ease $speed-fast;
+
+        background-color: $color-white-500;
+        clip-path: var(--clip-path);
+    }
+
+    .icon--showOnHover {
+        scale: 0;
+        width: 0;
+    }
+
+    &:hover .icon--showOnHover {
+        width: 2.5rem;
+        scale: revert;
+
+        &.icon--start {
+            margin-right: 1rem;
+        }
+
+        &.icon--end {
+            margin-left: 1rem;
+        }
+    }
+
+    &:active {
+        transform: translateY(0.25rem);
+    }
+}
+
+/*** MODIFIERS **************************/
+
+.Button {
+    &.outlined {
+        background-color: hsla(var(--clr-drk), 0);
+        border: 0.2rem solid hsla(var(--clr-drk), 0.75);
+        color: hsla(var(--clr-drk), 0.75);
+
+        &:hover {
+            background-color: hsla(var(--clr-drk), 1);
+            border: 0.2rem solid hsla(var(--clr-drk), 1);
+            color: hsl(var(--clr));
+        }
+    }
+
+    &.rounded {
+        border-radius: 5rem;
+    }
+
+    &.full {
+        width: 100%;
+    }
+}

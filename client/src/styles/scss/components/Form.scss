@@ -1,0 +1,298 @@
+@import "../base";
+
+/*** FORMATTING **************************/
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
+
+    .Input {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        input,
+        textarea {
+            height: 3rem;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        textarea {
+            height: 100%;
+            min-height: 12rem;
+            resize: none;
+            &::-webkit-scrollbar {
+                width: 0.75rem;
+            }
+        }
+    }
+
+    .Feedback {
+        display: flex;
+        align-items: center;
+    }
+
+    .Form__actions {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .Submit {
+        padding: 0.8rem 1rem;
+    }
+
+    &.hide {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.Form {
+    label,
+    input,
+    textarea {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+
+    label {
+        font-weight: 600;
+        letter-spacing: -0.05rem;
+        color: hsl(var(--clr-drk));
+    }
+
+    input,
+    textarea {
+        font-weight: 500;
+
+        &::placeholder {
+            color: hsla(var(--clr-drk), 0.75);
+        }
+
+        &:focus {
+            &::placeholder {
+                color: hsla(var(--clr-drk), 0.8);
+            }
+        }
+    }
+
+    .Feedback {
+        font-size: 2rem;
+    }
+
+    .Input[required] {
+        content: "*";
+    }
+}
+
+.Form[data-style-mode="light"] {
+    label {
+        color: hsla(0, 0, 32%, 1);
+    }
+
+    .Input {
+        input,
+        textarea {
+            &::placeholder {
+                color: hsla(0, 0, 70%, 1);
+            }
+
+            &:focus {
+                &::placeholder {
+                    color: hsla(var(--clr-drk), 0.75);
+                }
+            }
+        }
+
+        &:focus-within label {
+            color: hsl(var(--clr-drk));
+        }
+    }
+}
+
+.Submit {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    letter-spacing: -0.05rem;
+    color: hsla(var(--clr), 1);
+}
+
+.Submit[data-style-mode="light"] {
+    color: hsl(var(--clr-drk));
+}
+
+/*** DECORATION **************************/
+
+.Form {
+    transition: all 1s $anim-cubic-2;
+
+    label {
+        transition: all $speed-fast;
+    }
+
+    .Input {
+        input,
+        textarea {
+            cursor: auto;
+            transition: all $speed-fast;
+            border: none;
+            border-radius: 0.5rem;
+            outline: 0.3rem solid hsl(var(--clr)); //used as overflow hidden to cover scrollbar
+            background-color: hsla(var(--clr-drk), 0.1);
+            box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2),
+                inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+
+            &:focus {
+                box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2),
+                    inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+                outline: 0.3rem solid hsla(var(--clr-drk), 0.6) !important;
+            }
+        }
+
+        textarea {
+            &::-webkit-scrollbar-track {
+                background-color: hsl(0, 0, 100%, 0);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 0.8rem;
+                background-color: hsl(0, 0, 85%);
+            }
+
+            &:focus {
+                &::-webkit-scrollbar-thumb {
+                    background-color: hsla(var(--clr-drk), 0.3);
+                }
+            }
+        }
+
+        &[data-validity="false"] {
+            input,
+            textarea {
+                outline: 0.3rem solid rgba(255, 100, 100, 0.6) !important;
+            }
+        }
+    }
+
+    &[data-disabled="true"] .Input {
+        pointer-events: none;
+        opacity: 0.45;
+    }
+
+    .Feedback {
+        &[data-displayed] {
+            transition: opacity $speed-medium ease-out;
+        }
+        &[data-displayed="false"] {
+            opacity: 0;
+        }
+        &[data-displayed="true"] {
+            opacity: 1;
+        }
+    }
+}
+
+.Form[data-style-mode="light"] {
+    input,
+    textarea {
+        outline-color: $color-white-500; //used as overflow hidden to cover scrollbar
+        background-color: hsla(0, 0, 90%, 0.25);
+        box-shadow: inset 0 0.4rem 0.4rem hsla(0, 0, 0%, 0.1),
+            inset 0 0.4rem 0.3rem hsla(0, 0, 0%, 0.05);
+
+        &:focus {
+            background-color: hsla(var(--clr-drk), 0.15);
+            box-shadow: inset 0 0.4rem 0.4rem hsla(var(--clr-drk), 0.2),
+                inset 0 0.4rem 0.3rem hsla(var(--clr-drk), 0.05);
+        }
+    }
+}
+
+.Submit {
+    transition: all $speed-slower $anim-cubic-2;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: hsla(var(--clr-drk), 0.6);
+    box-shadow: 0 0.4rem 0.8rem hsla(0, 0, 0%, 0.1);
+
+    &:hover {
+        padding: 0.8rem 2rem;
+    }
+
+    &[disabled="true"] {
+        pointer-events: none;
+        filter: saturate(0);
+        opacity: 0.8;
+    }
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &.flashy {
+        position: relative;
+
+        &::after {
+            transition: all $speed-slower $anim-cubic-2, opacity 1s ease;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 0.25rem;
+            animation: pulsing 1.25s infinite;
+        }
+
+        &[disabled]::after,
+        &[disabled="true"]::after {
+            animation: none;
+        }
+    }
+}
+
+.Submit[data-style-mode="light"] {
+    background-color: hsl(var(--clr));
+
+    &.flashy {
+        &::after {
+            animation: pulsing 1.25s infinite;
+        }
+        &[disabled]::after,
+        &[disabled="true"]::after {
+            animation: none;
+        }
+    }
+}
+
+@keyframes pulsing {
+    0% {
+        box-shadow: 0 0 0 0 hsla(var(--clr-drk), 0);
+        opacity: 1;
+    }
+
+    100% {
+        box-shadow: 0 0 0 1.5rem hsla(var(--clr-drk), 0.7);
+        opacity: 0;
+    }
+}
+
+@keyframes pulsinglight {
+    0% {
+        box-shadow: 0 0 0 0 hsla(var(--clr), 0.5);
+        opacity: 1;
+    }
+
+    100% {
+        box-shadow: 0 0 0 1.5rem hsla(var(--clr), 1);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,233 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.MediaModal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.MediaModal img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.MediaScroller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.MediaScroller .window {
+  height: fit-content;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  width: auto;
+}
+.MediaScroller .window .media {
+  scroll-snap-type: x mandatory;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 50rem;
+  margin-bottom: -0.5rem;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 2rem;
+  scroll-padding: 2rem;
+  gap: 2rem;
+}
+.MediaScroller .window .media .MediaItem {
+  scroll-snap-align: start;
+}
+.MediaScroller .window .media .MediaItem img {
+  max-width: none;
+}
+.MediaScroller .window .media .spacer {
+  height: 100%;
+  width: 100%;
+}
+.MediaScroller .controller {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.MediaScroller .controller .controller__selector {
+  height: 1rem;
+  width: 1rem;
+}
+
+/*** TYPOGRAPHY **************************/
+/*** DECORATION **************************/
+.MediaScroller .window {
+  background: hsla(var(--clr-shdw));
+  border-radius: 0.8rem;
+  box-shadow: inset 0 0.4rem 0.2rem rgba(0, 0, 0, 0.05), inset 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+.MediaScroller .window .MediaItem:hover {
+  transform: none;
+}
+.MediaScroller .controller .controller__selector {
+  transition: all 150ms;
+  border-radius: 50%;
+  border: 0.2rem solid hsl(var(--clr-shdw));
+}
+.MediaScroller .controller .controller__selector:hover {
+  border: 0.2rem solid hsl(var(--clr-drk));
+}
+.MediaScroller .controller .controller__selector.active {
+  background-color: hsl(var(--clr-drk));
+}

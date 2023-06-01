@@ -1,0 +1,155 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.SearchBar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.SearchBar .SearchBar__input {
+  max-height: 5rem;
+  padding: 0.75rem 1.75rem;
+  width: 50%;
+  min-width: 35rem;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+/*** TYPOGRAPHY **************************/
+.SearchBar .SearchBar__input {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #c4c4c4;
+  text-overflow: ellipsis;
+}
+.SearchBar .SearchBar__input::placeholder {
+  color: #c4c4c4;
+}
+.SearchBar .SearchBar__input:focus, .SearchBar .SearchBar__input:active {
+  color: #000000;
+}
+.SearchBar .SearchBar__input:focus::placeholder, .SearchBar .SearchBar__input:active::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/*** DECORATION **************************/
+.SearchBar .SearchBar__input {
+  transition: all 200ms;
+  border: 2px solid #c4c4c4;
+  border-radius: 0.25rem 0 0 0.25rem;
+  resize: none;
+}
+.SearchBar .SearchBar__input:focus, .SearchBar .SearchBar__input:active {
+  outline: none !important;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5rem;
+  background-color: rgba(171, 171, 171, 0.3);
+}
+.SearchBar .SearchBar__input:focus + .submitButton, .SearchBar .SearchBar__input:active + .submitButton {
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.SearchBar .SearchBar__input:focus, .SearchBar .SearchBar__input:active, .SearchBar .SearchBar__input.active {
+  width: 100%;
+}
+.SearchBar .SearchBar__input:focus:has(+ .submitButton), .SearchBar .SearchBar__input:active:has(+ .submitButton), .SearchBar .SearchBar__input.active:has(+ .submitButton) {
+  border-radius: 5rem 0 0 5rem;
+  border-right: none;
+}
+.SearchBar .SearchBar__input:focus:has(+ .submitButton) + .submitButton, .SearchBar .SearchBar__input:active:has(+ .submitButton) + .submitButton, .SearchBar .SearchBar__input.active:has(+ .submitButton) + .submitButton {
+  border-radius: 0 5rem 5rem 0;
+  padding-right: 1rem;
+}
+.SearchBar .SearchBar__input:focus:has(+ .submitButton:hover), .SearchBar .SearchBar__input:active:has(+ .submitButton:hover), .SearchBar .SearchBar__input.active:has(+ .submitButton:hover) {
+  border-color: black;
+}
+.SearchBar .SearchBar__input:focus:has(+ .submitButton:hover) + .submitButton:hover, .SearchBar .SearchBar__input:active:has(+ .submitButton:hover) + .submitButton:hover, .SearchBar .SearchBar__input.active:has(+ .submitButton:hover) + .submitButton:hover {
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: black;
+}
+.SearchBar .submitButton {
+  transition: all 200ms;
+  cursor: pointer;
+  position: relative;
+  background-color: #c4c4c4;
+  border: 2px solid #c4c4c4;
+  border-radius: 0 0.25rem 0.25rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}

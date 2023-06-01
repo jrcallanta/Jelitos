@@ -1,0 +1,142 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** THEMING **************************/
+/*** FORMATTING **************************/
+.Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 1rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.Button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: hsl(var(--clr));
+}
+
+/*** DECORATION **************************/
+.Button {
+  transition: all 200ms;
+  border-radius: 0.5rem;
+  background: none;
+  background-color: hsla(var(--clr-drk), 0.75);
+  border: none;
+  cursor: pointer;
+}
+.Button:hover {
+  background-color: hsla(var(--clr-drk), 1);
+}
+.Button .icon {
+  transition: all 200ms ease-out, scale 200ms ease 150ms;
+  background-color: #ffffff;
+  clip-path: var(--clip-path);
+}
+.Button .icon--showOnHover {
+  scale: 0;
+  width: 0;
+}
+.Button:hover .icon--showOnHover {
+  width: 2.5rem;
+  scale: revert;
+}
+.Button:hover .icon--showOnHover.icon--start {
+  margin-right: 1rem;
+}
+.Button:hover .icon--showOnHover.icon--end {
+  margin-left: 1rem;
+}
+.Button:active {
+  transform: translateY(0.25rem);
+}
+
+/*** MODIFIERS **************************/
+.Button.outlined {
+  background-color: hsla(var(--clr-drk), 0);
+  border: 0.2rem solid hsla(var(--clr-drk), 0.75);
+  color: hsla(var(--clr-drk), 0.75);
+}
+.Button.outlined:hover {
+  background-color: hsla(var(--clr-drk), 1);
+  border: 0.2rem solid hsla(var(--clr-drk), 1);
+  color: hsl(var(--clr));
+}
+.Button.rounded {
+  border-radius: 5rem;
+}
+.Button.full {
+  width: 100%;
+}

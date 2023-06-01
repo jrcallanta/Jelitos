@@ -1,0 +1,248 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.ProjectsPage {
+  animation: fadeIn 400ms ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+}
+.ProjectsPage > .wrapper {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow-x: hidden;
+}
+.ProjectsPage > .wrapper .VerticalLabel .VerticalLabel__text {
+  margin-top: 2rem;
+}
+.ProjectsPage > .wrapper > .content {
+  flex: 1;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+.ProjectsPage > .wrapper > .content .scrollToTopButton {
+  position: absolute;
+  z-index: 1;
+  left: -5rem;
+  bottom: 2rem;
+  width: 8rem;
+  height: 8rem;
+}
+.ProjectsPage > .wrapper > .content .query {
+  margin: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.ProjectsPage > .wrapper > .content .query .SearchBar {
+  max-width: 67rem;
+}
+.ProjectsPage > .wrapper > .content .query .SearchBar .SearchBar__input {
+  width: calc(50% - 0.5rem);
+  min-width: 25rem;
+}
+.ProjectsPage > .wrapper > .content .query .SearchBar .SearchBar__input:focus,
+.ProjectsPage > .wrapper > .content .query .SearchBar .SearchBar__input:active:has(+ .submitButton),
+.ProjectsPage > .wrapper > .content .query .SearchBar .SearchBar__input.active:has(+ .submitButton) {
+  width: 100%;
+}
+.ProjectsPage > .wrapper > .content .table {
+  padding: 1rem 2rem 2rem;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+}
+.ProjectsPage > .wrapper > .content .table .ProjectCard {
+  flex: 1;
+}
+
+/*** TYPOGRAPHY **************************/
+.ProjectsPage > .wrapper > .content .query .query__feedback {
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+/*** DECORATION **************************/
+.ProjectsPage > .wrapper > .content .query {
+  transition: height 400ms;
+}
+.ProjectsPage > .wrapper > .content .query .query__feedback {
+  animation: fadeInGrow 400ms ease-out;
+}
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 48em) {
+  .ProjectsPage .wrapper .sideLabel .sideLabel__text {
+    line-height: auto;
+  }
+  .ProjectsPage .wrapper .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ProjectsPage .wrapper .content .query .SearchBar {
+    max-width: 100%;
+  }
+}
+@media (max-width: 37.5em) {
+  .ProjectsPage .wrapper .sideLabel .sideLabel__text {
+    font-size: 6rem;
+    line-height: normal;
+  }
+  .ProjectsPage .wrapper .content .query .SearchBar .SearchBar__input {
+    min-width: none;
+    width: 100%;
+  }
+}

@@ -1,0 +1,8 @@
+@use "./VersionBrowser";
+@import "../../responsive";
+
+.VersionBrowser {
+    @include respond(mobile) {
+        margin-bottom: 10rem;
+    }
+}

@@ -1,0 +1,30 @@
+@import './_variables';
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+    height: .5rem;
+    width: 1.25rem;
+    border: none;
+    background: transparent;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    transition: background-color $speed-medium;
+    background-clip: padding-box;
+    background-color: rgba($color-black-500, .25);
+    &:hover { background-color: rgba($color-black-500, .5); }
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($color-black-500, .15);
+}

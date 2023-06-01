@@ -1,0 +1,21 @@
+@use './_Preface';
+@import '../../_base';
+
+.ProjectPreface.section {
+    @include respond(mobile) {
+        .heading .heading__tags {
+            margin-bottom: 6rem;
+        }
+
+        .heading .heading__title__text {
+            font-size: 6rem;
+            line-height: 6rem;
+        }
+
+        .links {
+            & > * {
+                flex: 1;
+            }
+        }
+    }
+}

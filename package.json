@@ -1,0 +1,16 @@
+{
+    "name": "jelitos",
+    "version": "1.0.0",
+    "description": "This is the root of the JelitoWebApp",
+    "main": "server/app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build-client": "cd client && npm i && npm run build",
+        "build-server": "cd server && npm i",
+        "build": "npm run build-client && npm run build-server",
+        "start": "cd server && npm start",
+        "build-start": "npm run build && npm start"
+    },
+    "author": "Jelito S Callanta II",
+    "license": "ISC"
+}

@@ -1,0 +1,8 @@
+@use "./AdminPage.scss";
+@import "../../responsive";
+
+.AdminPage {
+    @include respond(mobile-small) {
+        margin: 0;
+    }
+}

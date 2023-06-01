@@ -1,0 +1,108 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.Preface.section {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+
+        .heading__tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+        }
+
+        .heading__title {
+            padding-bottom: 1rem;
+            overflow: hidden;
+
+            .heading__title__text {
+                display: inline-block;
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        & > * {
+            width: 10rem;
+        }
+    }
+
+    .section__sources {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.Preface {
+    .heading {
+        .heading__tags a {
+            text-decoration: none;
+            color: hsl(var(--clr-drk));
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 2rem;
+        }
+
+        .heading__title__text {
+            color: $color-black-500;
+            font-weight: 700;
+            font-size: 6.4rem;
+            line-height: 6.8rem;
+            letter-spacing: -0.2rem;
+        }
+
+        .heading__period {
+            color: $color-black-500;
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 3rem;
+            line-height: 3rem;
+        }
+    }
+
+    .intro {
+        .intro__section__title {
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 2rem;
+        }
+
+        .intro__section__content {
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 2.4rem;
+            letter-spacing: -0.02rem;
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.Preface {
+    .heading {
+        .heading__tags .heading__tags__tag {
+            transition: all $speed-medium;
+            position: relative;
+            &:hover {
+                transform: scale(1.05);
+                color: $color-black-500;
+            }
+        }
+    }
+}

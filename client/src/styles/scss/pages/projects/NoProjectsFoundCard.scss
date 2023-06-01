@@ -1,0 +1,33 @@
+@import "../../_base";
+@import "../../_animations";
+
+/*** FORMATTING **************************/
+.NoProjectsFoundCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    padding: 2rem 0;
+    grid-column: 1 / -1;
+    gap: 1rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.NoProjectsFoundCard {
+    .heading {
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
+
+    .content {
+        font-size: 1.4rem;
+    }
+}
+
+/*** DECORATION **************************/
+.NoProjectsFoundCard {
+    animation: fadeIn $speed-slower ease-out;
+    animation-delay: $speed-medium;
+    animation-fill-mode: backwards;
+}

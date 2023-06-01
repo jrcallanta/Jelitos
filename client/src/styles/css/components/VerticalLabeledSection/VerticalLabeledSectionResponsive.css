@@ -1,0 +1,174 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.VerticalLabeledSection {
+  min-height: 53.3rem;
+  position: relative;
+}
+.VerticalLabeledSection .wrapper {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.VerticalLabeledSection .wrapper .content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 2.5rem;
+}
+.VerticalLabeledSection .wrapper .content .content__heading,
+.VerticalLabeledSection .wrapper .content .content__info {
+  padding: 2.5rem 5rem;
+}
+.VerticalLabeledSection .wrapper .content .content__heading {
+  display: flex;
+  flex-direction: row;
+  gap: 3.1rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.VerticalLabeledSection .content a:link,
+.VerticalLabeledSection .content a:visited {
+  color: hsl(var(--clr-drk));
+  text-decoration: none;
+}
+.VerticalLabeledSection .content .content__heading {
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
+  color: hsl(var(--clr-drk));
+}
+.VerticalLabeledSection[data-style-mode=light] .content .content__heading {
+  color: #000000;
+}
+
+/*** DECORATION **************************/
+.VerticalLabeledSection {
+  transition: all 400ms ease-out, opacity 400ms ease-in;
+  background: hsl(var(--clr));
+}
+.VerticalLabeledSection[data-style-mode=light] {
+  background: #ffffff;
+}
+.VerticalLabeledSection > .wrapper {
+  animation: fadeIn 400ms;
+  animation-delay: 400ms;
+  animation-fill-mode: backwards;
+}
+.VerticalLabeledSection > .wrapper > .content {
+  animation: fadeIn 800ms;
+  animation-delay: 400ms;
+  animation-fill-mode: backwards;
+}
+.VerticalLabeledSection[data-observed=false] {
+  opacity: 0;
+}
+.VerticalLabeledSection[data-observed=false] > .wrapper {
+  display: none;
+}
+.VerticalLabeledSection[data-observed=false] > .wrapper > .content {
+  display: none;
+}
+
+@media (max-width: 48em) {
+  .VerticalLabeledSection .wrapper .sideLabel .sideLabel__text {
+    line-height: auto;
+  }
+  .VerticalLabeledSection .wrapper .content {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .VerticalLabeledSection .wrapper .sideLabel .sideLabel__text {
+    font-size: 6rem;
+    line-height: normal;
+  }
+  .VerticalLabeledSection .wrapper .content {
+    z-index: 1;
+  }
+  .VerticalLabeledSection .wrapper .content .content__heading,
+  .VerticalLabeledSection .wrapper .content .content__info {
+    padding: 2.5rem 2rem 1.5rem;
+  }
+}

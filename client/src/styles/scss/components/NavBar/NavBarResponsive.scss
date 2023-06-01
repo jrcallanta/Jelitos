@@ -1,0 +1,72 @@
+@use "./NavBar";
+@import "../../_base";
+
+.NavBar {
+    .wrapper.mobile {
+        display: none;
+    }
+
+    @include respond(tablet-vert) {
+        .wrapper {
+            display: none;
+        }
+
+        .wrapper.mobile {
+            display: grid;
+            grid-template-areas:
+                "brand  .   navIcon"
+                "nav    nav nav";
+            grid-template-columns: 1fr auto minmax(4rem, auto);
+
+            .NavBar__brand {
+                grid-area: brand;
+            }
+            .NavBar__navIcon {
+                grid-area: navIcon;
+            }
+            .NavBar__nav {
+                grid-area: nav;
+            }
+            .NavBar__projectsList {
+                display: none;
+            }
+
+            .NavBar__navIcon {
+                @include tappable;
+                box-sizing: border-box;
+                display: block;
+                height: 100%;
+                padding: 0.6rem;
+                min-height: 3rem;
+
+                img {
+                    height: 2.5rem;
+                    margin: auto;
+                }
+            }
+
+            .NavBar__nav {
+                width: 100%;
+                margin-top: 0;
+                transition: all $speed-slower $anim-cubic-2;
+                opacity: 0;
+                height: 0;
+                padding: 0;
+                pointer-events: none;
+
+                ul {
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 2rem;
+                }
+            }
+
+            .NavBar__nav.show {
+                margin: 4rem 0 2rem;
+                opacity: 1;
+                height: 13rem;
+                pointer-events: all;
+            }
+        }
+    }
+}

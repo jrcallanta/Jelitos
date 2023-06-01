@@ -1,0 +1,243 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.SingleProjectPage {
+  position: relative;
+  height: 100vh;
+  padding-top: 10rem;
+  overflow: overlay;
+  overflow-x: hidden;
+}
+.SingleProjectPage .navigationButton {
+  margin-left: -5rem;
+  visibility: hidden;
+  position: fixed;
+  left: 0rem;
+  bottom: 2rem;
+  width: 5rem;
+  height: 7rem;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SingleProjectPage .navigationButton .navigationButton__icon {
+  transform: scale(0.8) rotate(-90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SingleProjectPage .navigationButton:active .navigationButton__icon {
+  transform: scale(0.7) rotate(-90deg);
+}
+.SingleProjectPage .navigationButton.show {
+  margin-left: revert;
+  visibility: visible;
+}
+.SingleProjectPage .wrapper {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.SingleProjectPage .wrapper .actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  padding: 2.5rem 2rem;
+}
+.SingleProjectPage .wrapper .content {
+  padding: 2.5rem;
+  padding-bottom: 8rem;
+}
+.SingleProjectPage .wrapper .content > * {
+  padding: 3rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.SingleProjectPage .actions .backButton p {
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  letter-spacing: -5%;
+  color: #ffffff;
+  color: hsl(var(--clr));
+}
+
+/*** DECORATION **************************/
+.SingleProjectPage {
+  background-color: hsl(var(--clr));
+  animation: fadeIn 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  animation-fill-mode: backwards;
+}
+.SingleProjectPage.hide {
+  animation: fadeOut 200ms ease-in;
+  animation-fill-mode: forwards;
+}
+.SingleProjectPage .navigationButton {
+  transition: all 200ms ease-out;
+  background-color: hsl(var(--clr-drk));
+  opacity: 0.5;
+  border-radius: 0 0.8rem 0.8rem 0;
+}
+.SingleProjectPage .navigationButton .navigationButton__icon {
+  background-color: hsl(var(--clr));
+  clip-path: url("#navigation-button");
+}
+.SingleProjectPage .navigationButton:hover {
+  opacity: 1;
+}
+.SingleProjectPage .actions {
+  background-color: hsla(var(--clr-shdw));
+}
+.SingleProjectPage .actions .backButton {
+  all: unset;
+  cursor: pointer;
+}
+.SingleProjectPage .actions .backButton p {
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.SingleProjectPage .actions .backButton p::before {
+  content: "< ";
+}
+.SingleProjectPage .actions .backButton:hover p {
+  transform: scale(1.05);
+  color: #ffffff;
+}
+.SingleProjectPage .wrapper {
+  animation: fadeIn 800ms;
+  animation-delay: 400ms;
+  animation-fill-mode: backwards;
+}
+
+@media (max-width: 48em) {
+  .SingleProjectPage .wrapper .actions {
+    padding: 2.5rem 5rem;
+  }
+  .SingleProjectPage .wrapper .actions .backButton p::before {
+    content: "";
+  }
+  .SingleProjectPage .navigationButton {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .SingleProjectPage .wrapper .actions {
+    padding: 2.5rem 4rem;
+  }
+  .SingleProjectPage .wrapper .actions .backButton p {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .SingleProjectPage .wrapper .content {
+    padding: 1rem;
+    padding-right: 2rem;
+  }
+  .SingleProjectPage .navigationButton {
+    width: 6rem;
+    height: 6rem;
+    opacity: 1;
+  }
+  .SingleProjectPage .navigationButton .navigationButton__icon {
+    transform: scale(0.8) rotate(-90deg);
+  }
+  .SingleProjectPage .navigationButton:active .navigationButton__icon {
+    transform: scale(0.7) rotate(-90deg);
+  }
+}
+@media (max-width: 20em) {
+  .SingleProjectPage {
+    padding-top: 8rem;
+  }
+  .SingleProjectPage .wrapper .actions {
+    height: 8rem;
+    padding: 2rem 3rem;
+  }
+  .SingleProjectPage .wrapper .content {
+    padding: 0;
+    padding-right: 1rem;
+  }
+  .SingleProjectPage .navigationButton .navigationButton__icon {
+    transform: scale(0.6) rotate(-90deg);
+  }
+  .SingleProjectPage .navigationButton:active .navigationButton__icon {
+    transform: scale(0.5) rotate(-90deg);
+  }
+}

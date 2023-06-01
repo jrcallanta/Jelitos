@@ -1,0 +1,65 @@
+@import "../../_base";
+
+/*** FORMATTING **************************/
+
+.FeaturedSection {
+    .wrapper {
+        // padding: 5rem 0;
+    }
+}
+
+/*** TYPOGRAPHY **************************/
+
+.FeaturedSection {
+    .wrapper .content {
+        .content__heading {
+            a:link,
+            a:visited {
+                color: hsl(var(--clr-drk));
+                text-decoration: none;
+            }
+
+            &__tab,
+            &__seeAll {
+                font-weight: 600;
+                font-size: 1.8rem;
+                letter-spacing: -0.05rem;
+                text-transform: uppercase;
+            }
+
+            &__tab {
+                color: $color-white-500;
+            }
+        }
+    }
+}
+
+/*** DECORATION **************************/
+
+.FeaturedSection {
+    transition: all $speed-slower ease-out;
+    background: hsl(var(--clr));
+
+    .wrapper {
+        .content {
+            .content__heading {
+                &__tab,
+                &__seeAll {
+                    cursor: pointer;
+                }
+
+                &__tab.active {
+                    border-bottom: 0.2rem solid $color-white-500;
+                }
+
+                &__seeAll {
+                    transition: all $speed-fast;
+                    opacity: 0.75;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

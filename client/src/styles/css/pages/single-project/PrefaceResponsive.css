@@ -1,0 +1,241 @@
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/*** FORMATTING **************************/
+.Preface.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.Preface.section .heading {
+  display: flex;
+  flex-direction: column;
+}
+.Preface.section .heading .heading__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+.Preface.section .heading .heading__title {
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.Preface.section .heading .heading__title .heading__title__text {
+  display: inline-block;
+}
+.Preface.section .links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.Preface.section .links > * {
+  width: 10rem;
+}
+.Preface.section .section__sources {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+/*** TYPOGRAPHY **************************/
+.Preface .heading .heading__tags a {
+  text-decoration: none;
+  color: hsl(var(--clr-drk));
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.Preface .heading .heading__title__text {
+  color: #000000;
+  font-weight: 700;
+  font-size: 6.4rem;
+  line-height: 6.8rem;
+  letter-spacing: -0.2rem;
+}
+.Preface .heading .heading__period {
+  color: #000000;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 3rem;
+  line-height: 3rem;
+}
+.Preface .intro .intro__section__title {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.Preface .intro .intro__section__content {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  letter-spacing: -0.02rem;
+}
+
+/*** DECORATION **************************/
+.Preface .heading .heading__tags .heading__tags__tag {
+  transition: all 200ms;
+  position: relative;
+}
+.Preface .heading .heading__tags .heading__tags__tag:hover {
+  transform: scale(1.05);
+  color: #000000;
+}
+
+@keyframes fadeRightSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftSwipe {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDownSwipe {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInGrow {
+  0% {
+    position: relative;
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes swipeRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes swipeRightReverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 37.5em) {
+  .ProjectPreface.section .heading .heading__tags {
+    margin-bottom: 6rem;
+  }
+  .ProjectPreface.section .heading .heading__title__text {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+  .ProjectPreface.section .links > * {
+    flex: 1;
+  }
+}
