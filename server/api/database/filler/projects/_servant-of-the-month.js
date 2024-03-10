@@ -18,14 +18,14 @@ export default {
     ],
     period: {
         start: new Date("03/13/2023"),
-        end: new Date(),
+        end: new Date("07/28/2023"),
     },
     summary:
         "A simple webapp allowing for voter submissions and admin access over vote management. ",
     links: {
         repo: "https://github.com/jrcallanta/ServantOfTheMonth",
     },
-    card_image: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Survey_Page.png`,
+    card_image: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Survey_Page.png`,
     card_hue: 260,
     details: {
         intro: [
@@ -48,28 +48,28 @@ export default {
                 videoId: "OF9ZI06C6MA",
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Survey_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Survey_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Survey_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Survey_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Survey_Page_2.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Survey_Page_2.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Survey_Page_2.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Survey_Page_2.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Admin_Login_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Admin_Login_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Admin_Login_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Admin_Login_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Admin_Login_Page_2.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Admin_Login_Page_2.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Admin_Login_Page_2.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Admin_Login_Page_2.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Votes_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Votes_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Votes_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Votes_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Votes_Page_2.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/ServantOfTheMonth/Votes_Page_2.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Votes_Page_2.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/ServantOfTheMonth/Votes_Page_2.png`,
             },
         ],
     },

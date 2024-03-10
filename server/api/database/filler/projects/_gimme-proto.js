@@ -13,8 +13,8 @@ export default {
         "BCrypt",
     ],
     period: {
-        start: new Date("09/01/2021"),
-        end: new Date(),
+        start: new Date("09/01/2022"),
+        end: new Date("01/31/2023"),
     },
     summary:
         "A webapp prototype for creating custom wishlists. A social platform for generous friends and gifters.",
@@ -22,7 +22,7 @@ export default {
         liveDemo: "http://gimme.jelitos.com",
         repo: "https://github.com/jrcallanta/Gimme",
     },
-    card_image: `http://localhost:${process.env.PORT}/api/assets/Gimme/List_Page.png`,
+    card_image: `${process.env.HOSTED_URL}/api/assets/Gimme/List_Page.png`,
     card_hue: 290,
     details: {
         intro: [
@@ -52,28 +52,28 @@ export default {
                 videoId: "m8z2MYfLFQo",
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/Login_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/Login_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/Login_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/Login_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/List_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/List_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/List_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/List_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Page_2.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Page_2.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Page_2.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Page_2.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Edit_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/Item_Edit_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Edit_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/Item_Edit_Page.png`,
             },
             {
-                url: `http://localhost:${process.env.PORT}/api/assets/Gimme/Following_Page.png`,
-                alt: `http://localhost:${process.env.PORT}/api/assets/Gimme/Following_Page.png`,
+                url: `${process.env.HOSTED_URL}/api/assets/Gimme/Following_Page.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Gimme/Following_Page.png`,
             },
         ],
     },
