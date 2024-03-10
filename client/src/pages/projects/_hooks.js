@@ -112,12 +112,12 @@ export const useSearchResponder_v2 = (
                     .then((res) => res.json())
                     .then((data) => {
                         if (!data.error) setProjectList(data.results);
-                        else {
-                            setQueryFeedback(
-                                "There was an issue. Displaying all projects instead."
-                            );
-                            handleResetList();
-                        }
+                        else throw Error();
+                    })
+                    .catch((error) => {
+                        setQueryFeedback(
+                            "Uh oh! There was an issue with the search. Please try again later."
+                        );
                     });
 
                 window.scrollTo({ top: 0, behavior: "instant" });
