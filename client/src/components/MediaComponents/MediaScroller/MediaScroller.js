@@ -1,54 +1,44 @@
-import MediaItem from "../MediaItem/MediaItem";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import MediaZoomItem from "./MediaZoomItem";
 
-import { useMediaScrollerLogic } from "./_MediaScrollerLogic";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+
 import "../../../styles/css/components/MediaComponents/MediaScroller.css";
 
 function MediaScroller({ media }) {
-    const {
-        mediaRef,
-        mediaWindowRef,
-        mediaScrollerRef,
-        selectedIndex,
-        handleClick,
-        handleResize,
-    } = useMediaScrollerLogic(media);
-
     return (
-        <div className='MediaScroller' ref={mediaScrollerRef}>
-            <div className='window' ref={mediaWindowRef}>
-                <div className='media' ref={mediaRef}>
+        <div className='MediaScroller'>
+            <div className='window'>
+                <Swiper
+                    slidesPerView={"auto"}
+                    centeredSlides={true}
+                    spaceBetween={32}
+                    pagination={{
+                        clickable: true,
+                        dynamicBullets: true,
+                    }}
+                    modules={[FreeMode, Pagination, Mousewheel, Keyboard]}
+                    freeMode={{
+                        sticky: true,
+                    }}
+                    mousewheel={{
+                        enabled: true,
+                        forceToAxis: true,
+                    }}
+                >
                     {media.map((mediaObject, i) => {
-                        const className = i === selectedIndex ? "active" : "";
+                        // if (mediaObject.url) mediaObject.url += "err";
 
                         return (
-                            <MediaItem
-                                key={i}
-                                id={"mi" + i}
-                                className={className}
-                                mediaObject={mediaObject}
-                                onReady={handleResize}
-                            />
+                            <SwiperSlide className='media-item'>
+                                <MediaZoomItem mediaObject={mediaObject} />
+                            </SwiperSlide>
                         );
                     })}
-                    <div className='spacer'></div>
-                </div>
-            </div>
-
-            <div className='controller'>
-                {media.map((_, i) => {
-                    const className =
-                        i === selectedIndex
-                            ? "controller__selector active"
-                            : "controller__selector";
-
-                    return (
-                        <div
-                            key={"ctr" + i}
-                            className={className}
-                            onClick={() => handleClick(i)}
-                        />
-                    );
-                })}
+                </Swiper>
             </div>
         </div>
     );

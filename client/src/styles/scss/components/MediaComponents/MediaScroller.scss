@@ -10,57 +10,21 @@
     align-items: stretch;
 
     .window {
-        height: fit-content;
-        min-height: 30rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: stretch;
+        min-height: 35rem;
+        padding: 3rem;
         overflow: hidden;
 
-        width: auto;
-
-        .media {
-            scroll-snap-type: x mandatory;
-            overflow: hidden;
-            overflow-x: scroll;
-            height: 50rem;
-            margin-bottom: -0.5rem; // same as the height of horizontal scrollbar
-            min-height: 100%;
-            min-width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            padding: 2rem;
-            scroll-padding: 2rem;
-            gap: 2rem;
-
-            .MediaItem {
-                scroll-snap-align: start;
-
-                img {
-                    max-width: none;
-                }
-            }
-
-            .spacer {
-                height: 100%;
-                width: 100%;
-            }
+        & > * {
+            overflow: visible;
         }
-    }
 
-    .controller {
-        margin: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        .controller__selector {
-            height: 1rem;
-            width: 1rem;
+        .media-item {
+            max-width: 36rem;
+            user-select: none;
         }
+
+        --swiper-pagination-color: white;
+        --swiper-pagination-bottom: -2rem;
     }
 }
 
@@ -77,27 +41,42 @@
         border-radius: 0.8rem;
         box-shadow: inset 0 0.4rem 0.2rem rgba($color-black-500, 0.05),
             inset 0 0.4rem 0.4rem rgba($color-black-500, 0.1);
-
-        .MediaItem.MediaPlayer {
-            // transition: all 0s, // important for changing item positions on window resize
-        }
-
-        .MediaItem:hover {
-            transform: none;
-        }
     }
+}
 
-    .controller .controller__selector {
-        transition: all $speed-fast;
-        border-radius: 50%;
-        border: 0.2rem solid hsl(var(--clr-shdw));
-
-        &:hover {
-            border: 0.2rem solid hsl(var(--clr-drk));
-        }
-
-        &.active {
-            background-color: hsl(var(--clr-drk));
-        }
-    }
+[data-rmiz-modal-overlay="hidden"] {
+    background-color: rgba(0, 0, 0, 0);
+}
+[data-rmiz-modal-overlay="visible"] {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(0.5rem);
+}
+[data-rmiz-content="found"] img,
+[data-rmiz-content="found"] svg,
+[data-rmiz-content="found"] [role="img"],
+[data-rmiz-content="found"] [data-zoom] {
+    cursor: pointer;
+}
+[data-rmiz-modal-img] {
+    cursor: pointer;
+}
+[data-rmiz-btn-unzoom] {
+    background-color: rgba(255, 255, 2555, 0.25);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    height: 40px;
+    margin: 0;
+    outline-offset: 2px;
+    padding: 9px;
+    touch-action: manipulation;
+    width: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
