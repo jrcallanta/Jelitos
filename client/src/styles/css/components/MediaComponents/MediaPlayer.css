@@ -1,3 +1,11 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -73,24 +81,41 @@
 }
 /*** FORMATTING **************************/
 .MediaPlayer {
-  height: auto;
-  width: auto;
+  height: 100%;
+  min-height: 35rem;
+  width: 100%;
+  position: relative;
 }
 .MediaPlayer .player {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.MediaPlayer .player iframe {
   height: 100%;
   width: 100%;
-}
-.MediaPlayer .player > div {
-  height: 100%;
 }
 
 /*** TYPOGRAPHY **************************/
 /*** DECORATION **************************/
 .MediaPlayer {
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1.5rem 0.1rem hsla(var(--clr-drk), 0.4);
+}
+.MediaPlayer .player {
   background-color: hsl(var(--clr-drk));
 }
+.MediaPlayer .player:not(:has(iframe.loaded)) {
+  animation: pulse 2s infinite ease-in;
+}
+.MediaPlayer .player:not(:has(iframe.loaded)) * {
+  opacity: 0;
+}
 .MediaPlayer .player iframe {
-  transition: all 200ms;
+  transition: all 400ms;
   opacity: 0;
 }
 .MediaPlayer .player iframe.loaded {

@@ -1,3 +1,11 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -150,6 +158,14 @@
 }
 .ProjectsPage > .wrapper > .content .query .query__feedback {
   animation: fadeInGrow 400ms ease-out;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 @keyframes fadeRightSwipe {
   0% {

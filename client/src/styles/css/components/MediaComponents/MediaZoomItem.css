@@ -1,3 +1,11 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -77,35 +85,37 @@
   width: 100%;
 }
 .MediaZoomItem .MediaZoomItem__item {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
-.MediaZoomItem .MediaZoomItem__item:has(img) img {
-  min-width: var(--width);
+.MediaZoomItem .MediaZoomItem__item img {
   margin: auto;
   height: 100%;
   width: auto;
   object-fit: cover;
 }
-.MediaZoomItem .MediaZoomItem__item:has(img).error img {
-  display: none;
+.MediaZoomItem .MediaZoomItem__item:has(.error) {
+  height: 30rem;
 }
-.MediaZoomItem .MediaZoomItem__item:has(img).error::after {
-  content: "could not load image";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.MediaZoomItem .MediaZoomItem__item:has(.error) .error {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 /*** TYPOGRAPHY **************************/
-.MediaZoomItem .MediaZoomItem__item:has(img) {
+.MediaZoomItem {
+  color: hsl(var(--clr));
+}
+.MediaZoomItem .MediaZoomItem__item p {
   font-size: 2rem;
   font-weight: 500;
-  color: hsl(var(--clr));
   text-align: center;
 }
 
@@ -114,27 +124,12 @@
   border-radius: 0.8rem;
 }
 .MediaZoomItem .MediaZoomItem__item {
-  position: relative;
   overflow: hidden;
   border-radius: inherit;
   box-sizing: content-box;
   background-color: hsla(var(--clr-drk), 0.5);
   box-shadow: 0 0.5rem 1.5rem 0.1rem hsla(var(--clr-drk), 0.4);
-  filter: brightness(0.9);
-  transition: filter 150ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out;
-}
-.MediaZoomItem .MediaZoomItem__item.active {
-  filter: brightness(1);
-}
-.MediaZoomItem .MediaZoomItem__item:has(img).error img {
-  display: none;
-}
-.MediaZoomItem .MediaZoomItem__item:has(img).error::after {
-  content: "could not load image";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
 }
 .MediaZoomItem .MediaZoomItem__item * {
   transition: opacity 3s ease-out;
@@ -146,14 +141,6 @@
   opacity: 0;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
-}
 /*** DECORATION ***/
 [data-rmiz-modal-overlay=hidden] {
   background-color: rgba(0, 0, 0, 0);
@@ -173,6 +160,7 @@
 
 [data-rmiz-modal-img] {
   cursor: pointer;
+  border-radius: 0.8rem;
 }
 
 [data-rmiz-btn-unzoom] {

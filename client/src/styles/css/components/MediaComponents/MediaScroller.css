@@ -1,3 +1,11 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -83,6 +91,14 @@
   max-height: 90vh;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -174,8 +190,14 @@
   overflow: visible;
 }
 .MediaScroller .window .media-item {
-  max-width: 36rem;
+  margin-top: auto;
+  margin-bottom: auto;
   user-select: none;
+  max-width: 36rem;
+}
+.MediaScroller .window .media-item:has(.youtube) {
+  max-width: calc(100% - 4rem);
+  height: 100%;
 }
 
 /*** TYPOGRAPHY **************************/

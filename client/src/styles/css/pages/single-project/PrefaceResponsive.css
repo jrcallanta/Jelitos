@@ -1,3 +1,11 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
@@ -154,6 +162,14 @@
   color: #000000;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
 @keyframes fadeRightSwipe {
   0% {
     opacity: 0;
