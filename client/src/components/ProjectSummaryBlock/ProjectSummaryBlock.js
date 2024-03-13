@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { ReactComponent as ArrowClip } from "../../assets/ArrowIconClip.svg";
 import Button from "../micro/Button/Button.js";
-import MediaItem from "../MediaComponents/MediaItem/MediaItem.js";
+import Media from "../MediaComponents/Media.jsx";
 
 import { useProjectSummaryBlockLogic } from "./_ProjectSummaryBlockLogic.js";
 import "../../styles/css/components/ProjectSummaryBlockResponsive.css";
@@ -46,8 +46,7 @@ function ProjectSummaryBlock(props) {
 
                     {!props.hideMedia && props.project.details?.media && (
                         <div className='media-mobile'>
-                            <MediaItem
-                                type={props.project.details.media[0].type}
+                            <Media
                                 mediaObject={props.project.details.media[0]}
                             />
                         </div>
@@ -113,10 +112,7 @@ function ProjectSummaryBlock(props) {
 
             {!props.hideMedia && props.project.details?.media && (
                 <div className='media'>
-                    <MediaItem
-                        type={props.project.details.media[0].type}
-                        mediaObject={props.project.details.media[0]}
-                    />
+                    <Media mediaObject={props.project.details.media[0]} />
                 </div>
             )}
         </div>

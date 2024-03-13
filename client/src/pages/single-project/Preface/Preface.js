@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../../../components/micro/Button/Button.js";
-import MediaScroller from "../../../components/MediaComponents/MediaScroller/MediaScroller.js";
+import MediaScroller from "../../../components/MediaComponents/MediaScroller.js";
 
 import "../../../styles/css/pages/single-project/PrefaceResponsive.css";
 import "../../../styles/css/util/OverFlowScroller.css";

@@ -1,4 +1,4 @@
-import MediaItem from "../MediaComponents/MediaItem/MediaItem.js";
+import Media from "../MediaComponents/Media.jsx";
 import TextBlock from "./TextBlock.js";
 
 function Subsection(props) {
@@ -23,10 +23,7 @@ function MediaBlock({ subsection }) {
             data-layout-x={subsection._layout?.x}
             data-layout-y={subsection._layout?.y}
         >
-            <MediaItem
-                type={subsection.mediaObject.type}
-                mediaObject={subsection.mediaObject}
-            />
+            <Media mediaObject={subsection.mediaObject} />
         </div>
     );
 }
