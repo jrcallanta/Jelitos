@@ -1,12 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-import MediaZoomItem from "./MediaZoomItem";
+import Media from "./Media";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
-import "../../../styles/css/components/MediaComponents/MediaScroller.css";
+import "../../styles/css/components/MediaComponents/MediaScroller.css";
 
 function MediaScroller({ media }) {
     return (
@@ -30,11 +30,12 @@ function MediaScroller({ media }) {
                     }}
                 >
                     {media.map((mediaObject, i) => {
-                        // if (mediaObject.url) mediaObject.url += "err";
-
                         return (
-                            <SwiperSlide className='media-item'>
-                                <MediaZoomItem mediaObject={mediaObject} />
+                            <SwiperSlide
+                                className='media-item'
+                                key={mediaObject.id || i}
+                            >
+                                <Media mediaObject={mediaObject} />
                             </SwiperSlide>
                         );
                     })}
