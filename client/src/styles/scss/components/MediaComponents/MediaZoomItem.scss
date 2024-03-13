@@ -7,32 +7,29 @@
     width: 100%;
 
     .MediaZoomItem__item {
+        position: relative;
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
 
-        &:has(img) {
-            img {
-                min-width: var(--width);
-                margin: auto;
-                height: 100%;
-                width: auto;
-                object-fit: cover;
-            }
+        img {
+            margin: auto;
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+        }
 
-            &.error {
-                img {
-                    display: none;
-                }
-                &::after {
-                    content: "could not load image";
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
+        &:has(.error) {
+            height: 30rem;
+
+            .error {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
             }
         }
     }
@@ -41,51 +38,29 @@
 /*** TYPOGRAPHY **************************/
 
 .MediaZoomItem {
-    .MediaZoomItem__item:has(img) {
+    color: hsl(var(--clr));
+
+    .MediaZoomItem__item p {
         font-size: 2rem;
         font-weight: 500;
-        color: hsl(var(--clr));
         text-align: center;
     }
 }
 
 /*** DECORATION **************************/
-
 .MediaZoomItem {
     border-radius: 0.8rem;
 
     .MediaZoomItem__item {
-        position: relative;
         overflow: hidden;
         border-radius: inherit;
         box-sizing: content-box;
         // outline: .5rem solid transparent;
         background-color: hsla(var(--clr-drk), 0.5);
         box-shadow: 0 0.5rem 1.5rem 0.1rem hsla(var(--clr-drk), 0.4);
-        filter: brightness(0.9);
 
-        transition: filter $speed-fast ease-out,
-            transform $speed-medium ease-out, box-shadow $speed-medium ease-out,
-            // outline $speed-fast ease-out
-;
-
-        &.active {
-            filter: brightness(1);
-        }
-
-        &:has(img).error {
-            img {
-                display: none;
-            }
-
-            &::after {
-                content: "could not load image";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
+        transition: transform $speed-medium ease-out,
+            box-shadow $speed-medium ease-out;
 
         * {
             transition: opacity 3s ease-out;
@@ -95,20 +70,11 @@
     &.loading {
         .MediaZoomItem__item {
             animation: pulse 2s infinite ease-in;
+
             * {
                 opacity: 0;
             }
         }
-    }
-}
-
-@keyframes pulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.35;
     }
 }
 
@@ -128,6 +94,7 @@
 }
 [data-rmiz-modal-img] {
     cursor: pointer;
+    border-radius: 0.8rem;
 }
 [data-rmiz-btn-unzoom] {
     background-color: rgba(255, 255, 2555, 0.25);

@@ -19,8 +19,15 @@
         }
 
         .media-item {
-            max-width: 36rem;
+            margin-top: auto;
+            margin-bottom: auto;
             user-select: none;
+            max-width: 36rem;
+
+            &:has(.youtube) {
+                max-width: calc(100% - 4rem);
+                height: 100%;
+            }
         }
 
         --swiper-pagination-color: white;

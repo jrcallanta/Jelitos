@@ -1,19 +1,25 @@
-@import '../../_base';
+@import "../../_base";
 
 /*** FORMATTING **************************/
 
 .MediaPlayer {
     // min-width: 70rem;
     // max-width: 100%;
-    height: auto;
-    width: auto;
+    height: 100%;
+    min-height: 35rem;
+    width: 100%;
+    position: relative;
 
     .player {
-        height: 100%;
-        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-        & > div {
+        iframe {
             height: 100%;
+            width: 100%;
         }
     }
 }
@@ -21,20 +27,32 @@
 /*** TYPOGRAPHY **************************/
 
 .MediaPlayer {
-
 }
 
 /*** DECORATION **************************/
 
 .MediaPlayer {
-    background-color: hsl(var(--clr-drk));
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1.5rem 0.1rem hsla(var(--clr-drk), 0.4);
 
-    .player iframe {
-        transition: all $speed-medium;
-        opacity: 0;
+    .player {
+        background-color: hsl(var(--clr-drk));
 
-        &.loaded {
-            opacity: 1;
+        &:not(:has(iframe.loaded)) {
+            animation: pulse 2s infinite ease-in;
+            * {
+                opacity: 0;
+            }
+        }
+
+        iframe {
+            transition: all $speed-slower;
+            opacity: 0;
+
+            &.loaded {
+                opacity: 1;
+            }
         }
     }
 }
