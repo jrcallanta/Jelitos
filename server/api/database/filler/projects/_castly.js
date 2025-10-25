@@ -47,8 +47,18 @@ export default {
             // },
             {
                 url: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_1.png`,
+                alt: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_1.png`,
+            },
+            {
+                url: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_2.png`,
                 alt: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_2.png`,
+            },
+            {
+                url: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_3.png`,
                 alt: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_3.png`,
+            },
+            {
+                url: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_4.png`,
                 alt: `${process.env.HOSTED_URL}/api/assets/Castly/VoteForm_4.png`,
             },
         ],
